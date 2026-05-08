@@ -1,5 +1,6 @@
 import { ArrowRight, Heart, MessageCircle, Moon, Sparkles } from "lucide-react";
 import { siteLinks } from "../data/site";
+import { assetPath } from "../lib/assets";
 
 export default function Hero() {
   return (
@@ -8,7 +9,7 @@ export default function Hero() {
       className="relative isolate overflow-hidden bg-hero-glow pb-16 pt-8 sm:pb-20 sm:pt-12"
     >
       <img
-        src="/images/hero-bg.png"
+        src={assetPath("/images/hero-bg.png")}
         alt=""
         className="absolute inset-0 -z-10 h-full w-full object-cover opacity-30"
         aria-hidden="true"
@@ -19,30 +20,30 @@ export default function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
         <div className="animate-fade-up text-center lg:text-left">
           <p className="eyebrow mx-auto mb-5 w-fit lg:mx-0">
-            Instagramで話題の恋愛占い
+            Instagramから来た方へ
           </p>
           <h1 className="mx-auto max-w-3xl text-[1.82rem] font-bold leading-[1.45] text-cocoa min-[420px]:text-[2.05rem] sm:text-5xl lg:mx-0">
+            <span className="block">LINEで無料恋愛占い</span>
             <span className="block sm:inline">彼の本音と、</span>
-            <span className="block sm:inline">あなたの恋の流れを</span>
-            <span className="block">読み解く</span>
+            <span className="block sm:inline">恋の流れをやさしく整理</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-rosewood/80 sm:text-lg lg:mx-0">
-            誕生日・恋愛傾向・今の状況から、片思い・復縁・相性をやさしく鑑定します。
+            友だち追加後に「無料占い希望」と送るだけ。片思い・復縁・相性の悩みを、スマホから気軽に相談できます。
           </p>
 
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-            <a className="btn-primary" href="#menu">
-              鑑定メニューを見る
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
             <a
-              className="btn-secondary"
+              className="btn-primary"
               href={siteLinks.line}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
+              LINEで無料占いを申し込む
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <a className="btn-secondary" href="#faq">
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
-              LINEで相談する
+              よくある質問を見る
             </a>
           </div>
 
@@ -78,7 +79,7 @@ export default function Hero() {
 
           <div className="relative rounded-[2.25rem] border border-white/90 bg-white/70 p-3 shadow-soft backdrop-blur">
             <img
-              src="/images/hero-visual.png"
+              src={assetPath("/images/hero-visual.png")}
               alt="水晶を持つ占い師風の女性イラスト"
               className="aspect-[4/5] w-full rounded-[1.75rem] object-cover object-center"
             />

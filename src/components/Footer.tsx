@@ -29,7 +29,7 @@ export default function Footer() {
           <a
             href={siteLinks.instagram}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="mt-5 inline-flex items-center gap-2 rounded-full bg-blush-50 px-4 py-2 text-sm font-bold text-rosewood transition hover:bg-blush-100"
           >
             <Instagram className="h-4 w-4" aria-hidden="true" />
@@ -39,7 +39,17 @@ export default function Footer() {
 
         <nav className="grid gap-3 text-sm font-medium text-rosewood/70 sm:grid-cols-2 md:text-right">
           {footerLinks.map((link) => (
-            <a key={link.label} className="hover:text-rosewood" href={link.href}>
+            <a
+              key={link.label}
+              className="hover:text-rosewood"
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={
+                link.href.startsWith("http")
+                  ? "noopener noreferrer"
+                  : undefined
+              }
+            >
               {link.label}
             </a>
           ))}

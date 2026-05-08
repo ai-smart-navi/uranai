@@ -1,5 +1,6 @@
 import { Moon, Quote, Sparkles } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+import { assetPath } from "../lib/assets";
 
 export default function SampleReading() {
   return (
@@ -9,7 +10,7 @@ export default function SampleReading() {
       <div className="mx-auto max-w-3xl">
         <div className="relative overflow-hidden rounded-[1.75rem] border border-[#f1dfbd] bg-white px-6 py-8 shadow-soft sm:px-10">
           <img
-            src="/images/decorations.png"
+            src={assetPath("/images/decorations.png")}
             alt=""
             aria-hidden="true"
             className="pointer-events-none absolute -right-20 -top-24 w-56 opacity-20"

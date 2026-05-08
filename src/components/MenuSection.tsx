@@ -20,8 +20,8 @@ export default function MenuSection() {
     <section id="menu" className="section-shell scroll-mt-24 bg-[#fff9fb]">
       <SectionHeading
         label="menu"
-        title="鑑定メニュー"
-        description="はじめての方も選びやすい、恋の状況に合わせた3つのメニューです。"
+        title="もっと詳しく占いたい方へ"
+        description="まずは無料占いでご相談ください。必要な方には、恋の状況に合わせた追加鑑定をご案内します。"
       />
 
       <div className="grid gap-5 lg:grid-cols-3">
@@ -83,7 +83,7 @@ function ProductCard({ product }: { product: Product }) {
       <a
         href={product.ctaHref}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-rosewood px-5 py-3 text-sm font-bold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-cocoa"
       >
         {product.ctaLabel}

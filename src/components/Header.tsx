@@ -38,12 +38,12 @@ export default function Header() {
         <a
           href={siteLinks.line}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="inline-flex min-h-10 shrink-0 items-center gap-2 rounded-full bg-cocoa px-3 py-2 text-sm font-bold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-rosewood sm:px-4"
         >
           <MessageCircle className="h-4 w-4" aria-hidden="true" />
-          <span className="hidden min-[360px]:inline">LINE相談</span>
-          <span className="min-[360px]:hidden">LINE</span>
+          <span className="hidden min-[360px]:inline">無料占い</span>
+          <span className="min-[360px]:hidden">無料</span>
         </a>
       </div>
     </header>

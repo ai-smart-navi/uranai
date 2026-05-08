@@ -55,11 +55,3 @@
     transition-duration: 0.01ms !important;
   }
 }
-
-@media (max-width: 640px) {
-  #root {
-    max-width: 350px;
-    margin-inline: auto;
-    background: #fffdfb;
-  }
-}
