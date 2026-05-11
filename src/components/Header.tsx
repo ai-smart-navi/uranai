@@ -23,12 +23,15 @@ export default function Header() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-6 text-sm font-medium text-rosewood/75 md:flex">
+        <nav className="hidden items-center gap-5 text-sm font-medium text-rosewood/75 md:flex">
+          <a className="hover:text-rosewood" href={siteLinks.dailyFortuneSection}>
+            今日の運勢
+          </a>
+          <a className="hover:text-rosewood" href={siteLinks.freeToolSection}>
+            今週の恋愛運
+          </a>
           <a className="hover:text-rosewood" href="#menu">
             鑑定メニュー
-          </a>
-          <a className="hover:text-rosewood" href="#flow">
-            流れ
           </a>
           <a className="hover:text-rosewood" href="#faq">
             FAQ

@@ -31,6 +31,7 @@ export type FreeLoveFortuneInput = {
   birthday: string;
   loveStatus: LoveStatus;
   partnerStatus: PartnerStatus;
+  weekKey: string;
 };
 
 export type FreeLoveFortuneResult = {
@@ -103,7 +104,7 @@ const cautions = [
   "返事の速さだけで気持ちを判断しないようにしましょう。",
   "不安なときほど、言葉を強くしすぎないことが大切です。",
   "相手に合わせすぎるより、自分の心地よさも同じくらい大切にしてください。",
-  "今日中に答えを出そうとせず、少し余白を残すと流れが整います。",
+  "今週中に答えを出そうとせず、少し余白を残すと流れが整います。",
 ];
 
 const adviceMessages: Record<LoveStatus, string[]> = {
@@ -124,7 +125,7 @@ const adviceMessages: Record<LoveStatus, string[]> = {
     "気になる場所へ少しだけ足を運ぶと、恋の流れが動きやすくなります。",
   ],
   複雑な関係: [
-    "今日は無理に追いかけず、自分が安心できる予定をひとつ入れましょう。",
+    "今週は無理に追いかけず、自分が安心できる予定をひとつ入れましょう。",
     "相手に聞く前に、自分がどう扱われたいかを言葉にしてみてください。",
   ],
   まだわからない: [
@@ -160,6 +161,7 @@ export function generateFreeLoveFortune(
     input.birthday,
     input.loveStatus,
     input.partnerStatus,
+    input.weekKey,
   ].join("|");
   const seed = hashString(normalizedInput);
   const birthdayPower = input.birthday

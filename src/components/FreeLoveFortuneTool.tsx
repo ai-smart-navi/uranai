@@ -1,13 +1,14 @@
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 import {
   ArrowRight,
-  CalendarDays,
+  CalendarClock,
   Heart,
   Palette,
   Sparkles,
   WandSparkles,
 } from "lucide-react";
 import { siteLinks } from "../data/site";
+import BirthdayFields from "./BirthdayFields";
 import {
   generateFreeLoveFortune,
   genderOptions,
@@ -19,19 +20,37 @@ import {
   type LoveStatus,
   type PartnerStatus,
 } from "../lib/freeLoveFortune";
+import {
+  emptyBirthdayParts,
+  formatBirthdayParts,
+  getCurrentWeekKey,
+  parseBirthday,
+  type BirthdayParts,
+} from "../lib/dateUtils";
+
+const STORAGE_KEY = "loveTips.weeklyLoveFortune";
+const WEEKLY_DONE_MESSAGE =
+  "今週の恋愛運はすでに診断済みです。来週になると、新しい恋愛運を診断できます。";
 
 type FormState = {
   nickname: string;
   gender: Gender | "";
-  birthday: string;
+  birthday: BirthdayParts;
   loveStatus: LoveStatus | "";
   partnerStatus: PartnerStatus | "";
+};
+
+type StoredWeeklyLoveFortune = {
+  weekKey: string;
+  input: FreeLoveFortuneInput;
+  result: FreeLoveFortuneResult;
+  diagnosedAt: string;
 };
 
 const initialForm: FormState = {
   nickname: "",
   gender: "",
-  birthday: "",
+  birthday: emptyBirthdayParts,
   loveStatus: "",
   partnerStatus: "",
 };
@@ -43,25 +62,68 @@ type FreeLoveFortuneToolProps = {
 export default function FreeLoveFortuneTool({
   compact = false,
 }: FreeLoveFortuneToolProps) {
+  const weekKey = getCurrentWeekKey();
   const [form, setForm] = useState<FormState>(initialForm);
   const [result, setResult] = useState<FreeLoveFortuneResult | null>(null);
   const [error, setError] = useState("");
+  const [notice, setNotice] = useState("");
 
-  const setField = (field: keyof FormState, value: string) => {
+  useEffect(() => {
+    const stored = readStoredWeeklyFortune(weekKey);
+
+    if (!stored) {
+      return;
+    }
+
+    setForm({
+      nickname: stored.input.nickname,
+      gender: stored.input.gender,
+      birthday: parseBirthday(stored.input.birthday),
+      loveStatus: stored.input.loveStatus,
+      partnerStatus: stored.input.partnerStatus,
+    });
+    setResult(stored.result);
+    setNotice(WEEKLY_DONE_MESSAGE);
+  }, [weekKey]);
+
+  const setField = (field: keyof Omit<FormState, "birthday">, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    const stored = readStoredWeeklyFortune(weekKey);
+    if (stored) {
+      setForm({
+        nickname: stored.input.nickname,
+        gender: stored.input.gender,
+        birthday: parseBirthday(stored.input.birthday),
+        loveStatus: stored.input.loveStatus,
+        partnerStatus: stored.input.partnerStatus,
+      });
+      setResult(stored.result);
+      setNotice(WEEKLY_DONE_MESSAGE);
+      setError("");
+      return;
+    }
+
+    const birthday = formatBirthdayParts(form.birthday);
+    if (!birthday) {
+      setError("正しい生年月日を入力してください。");
+      setNotice("");
+      setResult(null);
+      return;
+    }
+
     if (
       !form.nickname.trim() ||
       !form.gender ||
-      !form.birthday ||
       !form.loveStatus ||
       !form.partnerStatus
     ) {
       setError("すべての項目を入力すると、恋愛運を診断できます。");
+      setNotice("");
       setResult(null);
       return;
     }
@@ -69,13 +131,22 @@ export default function FreeLoveFortuneTool({
     const input: FreeLoveFortuneInput = {
       nickname: form.nickname.trim(),
       gender: form.gender,
-      birthday: form.birthday,
+      birthday,
       loveStatus: form.loveStatus,
       partnerStatus: form.partnerStatus,
+      weekKey,
     };
+    const nextResult = generateFreeLoveFortune(input);
 
-    setResult(generateFreeLoveFortune(input));
+    writeStoredWeeklyFortune({
+      weekKey,
+      input,
+      result: nextResult,
+      diagnosedAt: new Date().toISOString(),
+    });
+    setResult(nextResult);
     setError("");
+    setNotice("");
   };
 
   return (
@@ -99,10 +170,11 @@ export default function FreeLoveFortuneTool({
             </span>
             <div>
               <h3 className="text-lg font-bold leading-7 text-cocoa">
-                無料恋愛運ミニ診断
+                今週の恋愛運ミニ診断
               </h3>
               <p className="mt-1 text-sm leading-7 text-rosewood/75">
-                入力内容から、今日の恋の流れをかんたんに読み解きます。
+                恋愛運は毎日大きく変わるものではないため、love
+                tipsでは1週間に1回、今週の恋の流れを診断できます。
               </p>
             </div>
           </div>
@@ -134,25 +206,12 @@ export default function FreeLoveFortuneTool({
               </select>
             </label>
 
-            <label className="grid gap-2 text-sm font-bold text-cocoa">
-              生年月日
-              <span className="relative">
-                <CalendarDays
-                  className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-rosewood/45"
-                  aria-hidden="true"
-                />
-                <input
-                  className="min-h-12 w-full rounded-2xl border border-blush-100 bg-white px-4 pl-11 text-base font-medium text-cocoa outline-none transition focus:border-blush-300 focus:ring-4 focus:ring-blush-100"
-                  type="text"
-                  inputMode="numeric"
-                  value={form.birthday}
-                  onChange={(event) =>
-                    setField("birthday", event.target.value)
-                  }
-                  placeholder="例：1994-04-12"
-                />
-              </span>
-            </label>
+            <BirthdayFields
+              value={form.birthday}
+              onChange={(birthday) =>
+                setForm((current) => ({ ...current, birthday }))
+              }
+            />
 
             <label className="grid gap-2 text-sm font-bold text-cocoa">
               今の恋愛状況
@@ -194,9 +253,14 @@ export default function FreeLoveFortuneTool({
               {error}
             </p>
           ) : null}
+          {notice ? (
+            <p className="mt-4 rounded-2xl bg-lavender-50 px-4 py-3 text-sm font-bold leading-6 text-lavender-500">
+              {notice}
+            </p>
+          ) : null}
 
           <button className="btn-primary mt-5 w-full" type="submit">
-            無料で診断する
+            今週の恋愛運を診断する
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </button>
           <p className="mt-3 text-center text-xs leading-6 text-rosewood/55">
@@ -206,7 +270,7 @@ export default function FreeLoveFortuneTool({
 
         <div className="rounded-[1.5rem] border border-lavender-100 bg-gradient-to-br from-white to-lavender-50/80 p-4 sm:p-5">
           {result ? (
-            <FortuneResult result={result} />
+            <FortuneResult result={result} notice={notice} />
           ) : (
             <EmptyResult compact={compact} />
           )}
@@ -224,32 +288,43 @@ function EmptyResult({ compact }: { compact: boolean }) {
           <Heart className="h-8 w-8" aria-hidden="true" />
         </span>
         <h3 className="text-xl font-bold leading-8 text-cocoa">
-          診断結果がここに表示されます
+          今週の診断結果がここに表示されます
         </h3>
         <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-rosewood/75">
           {compact
-            ? "フォームを入力すると、今の恋愛運スコアと今日からできるアドバイスをすぐに確認できます。"
-            : "ニックネーム・生年月日・今の恋愛状況を入れるだけで、恋の流れをやさしく診断します。"}
+            ? "フォームを入力すると、今週の恋愛運スコアと意識したいアドバイスを確認できます。"
+            : "ニックネーム・生年月日・今の恋愛状況を入れるだけで、今週の恋の流れをやさしく診断します。"}
         </p>
       </div>
     </div>
   );
 }
 
-function FortuneResult({ result }: { result: FreeLoveFortuneResult }) {
+function FortuneResult({
+  result,
+  notice,
+}: {
+  result: FreeLoveFortuneResult;
+  notice: string;
+}) {
   const resultItems = [
-    { label: "今の恋の流れ", value: result.flow },
+    { label: "今週の恋の流れ", value: result.flow },
     { label: "あなたの魅力", value: result.charm },
     { label: "恋愛で気をつけること", value: result.caution },
-    { label: "今日からできるアドバイス", value: result.advice },
+    { label: "今週意識したいアドバイス", value: result.advice },
   ];
 
   return (
     <div>
+      {notice ? (
+        <p className="mb-4 rounded-2xl bg-white px-4 py-3 text-sm font-bold leading-6 text-lavender-500 shadow-sm">
+          {notice}
+        </p>
+      ) : null}
       <div className="rounded-[1.35rem] border border-white bg-white/90 p-5 text-center shadow-card">
-        <p className="eyebrow mx-auto mb-4 w-fit">today</p>
+        <p className="eyebrow mx-auto mb-4 w-fit">this week</p>
         <p className="text-sm font-bold text-rosewood/70">
-          今日の恋愛運スコア
+          今週の恋愛運スコア
         </p>
         <p className="mt-2 text-6xl font-bold leading-none text-cocoa">
           {result.score}
@@ -295,8 +370,9 @@ function FortuneResult({ result }: { result: FreeLoveFortuneResult }) {
           </p>
         </div>
         <div className="rounded-[1.1rem] border border-white bg-white/85 p-4 shadow-sm">
-          <p className="text-xs font-bold uppercase text-gold">
-            ラッキーアクション
+          <p className="flex items-center gap-2 text-xs font-bold uppercase text-gold">
+            <CalendarClock className="h-4 w-4" aria-hidden="true" />
+            今週のラッキーアクション
           </p>
           <p className="mt-3 text-sm font-bold leading-7 text-cocoa">
             {result.luckyAction}
@@ -326,4 +402,26 @@ function FortuneResult({ result }: { result: FreeLoveFortuneResult }) {
       </div>
     </div>
   );
+}
+
+function readStoredWeeklyFortune(weekKey: string) {
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) {
+      return null;
+    }
+
+    const stored = JSON.parse(raw) as StoredWeeklyLoveFortune;
+    return stored.weekKey === weekKey ? stored : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeStoredWeeklyFortune(value: StoredWeeklyLoveFortune) {
+  try {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
+  } catch {
+    // localStorage may be unavailable in private browsing; diagnosis still works.
+  }
 }

@@ -17,15 +17,15 @@ export type Product = {
 export const products: Product[] = [
   {
     id: "free-love-fortune",
-    title: "無料恋愛運ミニ診断",
+    title: "今週の恋愛運ミニ診断",
     price: "0円",
     description:
-      "まずは気軽に、今の恋愛運と恋の流れをチェックできます。",
+      "まずは気軽に、今週の恋愛運と恋の流れをチェックできます。",
     features: [
-      "今日の恋愛運",
-      "今の恋の流れ",
+      "今週の恋愛運",
+      "今週の恋の流れ",
       "あなたの魅力",
-      "今日のアドバイス",
+      "今週のアドバイス",
     ],
     ctaLabel: "無料で診断する",
     ctaHref: siteLinks.freeToolSection,

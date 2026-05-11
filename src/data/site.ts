@@ -6,6 +6,8 @@ export const siteLinks = {
   order: lineFriendUrl,
   freeTool: `${import.meta.env.BASE_URL}free-tool/`,
   freeToolSection: "#free-tool-section",
+  dailyFortune: `${import.meta.env.BASE_URL}daily-fortune/`,
+  dailyFortuneSection: "#daily-fortune-section",
   instagram: "https://www.instagram.com/love_tips000/",
   legal: pagePath("legal.html"),
   privacy: pagePath("privacy.html"),
