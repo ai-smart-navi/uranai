@@ -35,6 +35,7 @@ export default function MenuSection() {
 
 function ProductCard({ product }: { product: Product }) {
   const Icon = iconMap[product.icon];
+  const isExternalLink = product.ctaHref.startsWith("http");
 
   return (
     <article
@@ -63,7 +64,11 @@ function ProductCard({ product }: { product: Product }) {
       </p>
       <p className="mt-5 flex items-end gap-1 text-3xl font-bold text-cocoa">
         {product.price}
-        <span className="pb-1 text-sm font-medium text-rosewood/60">税込</span>
+        {product.priceNote ? (
+          <span className="pb-1 text-sm font-medium text-rosewood/60">
+            {product.priceNote}
+          </span>
+        ) : null}
       </p>
 
       <ul className="mt-5 space-y-3">
@@ -82,8 +87,8 @@ function ProductCard({ product }: { product: Product }) {
 
       <a
         href={product.ctaHref}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={isExternalLink ? "_blank" : undefined}
+        rel={isExternalLink ? "noopener noreferrer" : undefined}
         className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-rosewood px-5 py-3 text-sm font-bold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-cocoa"
       >
         {product.ctaLabel}

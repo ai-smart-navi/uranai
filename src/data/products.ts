@@ -8,6 +8,7 @@ export type Product = {
   features: string[];
   ctaLabel: string;
   ctaHref: string;
+  priceNote?: string;
   badge?: string;
   icon: "heart" | "moon" | "crystal";
   tone: "pink" | "lavender" | "beige";
@@ -15,53 +16,55 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    id: "birthday-compatibility",
-    title: "誕生日でわかる恋愛相性診断",
-    price: "980円",
+    id: "free-love-fortune",
+    title: "無料恋愛運ミニ診断",
+    price: "0円",
     description:
-      "無料占いのあと、相性をもっと詳しく知りたい方向けの追加鑑定です。",
+      "まずは気軽に、今の恋愛運と恋の流れをチェックできます。",
     features: [
-      "基本相性",
-      "惹かれ合うポイント",
-      "すれ違いやすいポイント",
-      "距離を縮めるアドバイス",
+      "今日の恋愛運",
+      "今の恋の流れ",
+      "あなたの魅力",
+      "今日のアドバイス",
     ],
-    ctaLabel: "LINEで無料占いから始める",
-    ctaHref: siteLinks.order,
+    ctaLabel: "無料で診断する",
+    ctaHref: siteLinks.freeToolSection,
     badge: "人気No.1",
     icon: "heart",
     tone: "pink",
   },
   {
-    id: "true-feelings",
-    title: "彼の本音リーディング",
-    price: "1,480円",
+    id: "relationship-compatibility",
+    title: "二人の相性・関係性診断",
+    price: "980円",
+    priceNote: "税込",
     description:
-      "無料占いのあと、彼の気持ちや連絡の流れを深く整理したい方向けです。",
+      "あなたと気になる相手の関係性、距離感、相性を詳しく整理したい方向けです。",
     features: [
+      "二人の基本相性",
       "今の距離感",
-      "彼の心理傾向",
-      "連絡のタイミング",
-      "会話のアドバイス",
+      "すれ違いやすいポイント",
+      "関係を進めるアドバイス",
     ],
-    ctaLabel: "LINEで無料占いから始める",
+    ctaLabel: "LINEで詳しく相談する",
     ctaHref: siteLinks.order,
     icon: "moon",
     tone: "lavender",
   },
   {
-    id: "reunion-possibility",
-    title: "復縁可能性診断",
+    id: "deep-reading",
+    title: "彼の本音・復縁深掘り鑑定",
     price: "1,980円",
+    priceNote: "税込",
     description:
-      "無料占いのあと、復縁に向けた動き方を詳しく知りたい方向けです。",
+      "相手の気持ちや復縁の可能性、今後の動き方まで深く知りたい方向けです。",
     features: [
-      "復縁の可能性",
-      "相手の心理傾向",
-      "今やるべきこと",
+      "相手の本音",
+      "復縁・進展の可能性",
+      "連絡のタイミング",
       "避けた方がいい行動",
     ],
-    ctaLabel: "LINEで無料占いから始める",
+    ctaLabel: "LINEで詳しく相談する",
     ctaHref: siteLinks.order,
     icon: "crystal",
     tone: "beige",

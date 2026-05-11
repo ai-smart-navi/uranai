@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import { ArrowRight, Gift, MessageCircle, ShieldCheck, Sparkles } from "lucide-react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import FreeLoveFortuneTool from "./components/FreeLoveFortuneTool";
 import ProblemSection from "./components/ProblemSection";
 import MenuSection from "./components/MenuSection";
 import FlowSection from "./components/FlowSection";
@@ -8,14 +10,47 @@ import SampleReading from "./components/SampleReading";
 import TrustSection from "./components/TrustSection";
 import FaqSection from "./components/FaqSection";
 import Footer from "./components/Footer";
+import SectionHeading from "./components/SectionHeading";
 import { siteLinks } from "./data/site";
 
 function App() {
+  const [hash, setHash] = useState(() => window.location.hash);
+
+  useEffect(() => {
+    const handleHashChange = () => setHash(window.location.hash);
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  if (hash === "#free-tool") {
+    return <FreeToolPage />;
+  }
+
   return (
     <div className="min-h-screen overflow-hidden bg-[#fffdfb] pb-24 text-cocoa sm:pb-0">
       <Header />
       <main>
         <Hero />
+        <section
+          id="free-tool-section"
+          className="section-shell scroll-mt-24 pt-8 sm:pt-10"
+        >
+          <SectionHeading
+            label="free tool"
+            title="まずは無料で恋愛運をチェック"
+            description="ニックネームと生年月日を入れるだけで、今の恋の流れをかんたんに診断できます。"
+          />
+          <FreeLoveFortuneTool />
+          <div className="mt-5 text-center">
+            <a
+              className="inline-flex text-sm font-bold text-rosewood underline-offset-4 hover:underline"
+              href={siteLinks.freeTool}
+            >
+              無料診断だけを開く
+            </a>
+          </div>
+        </section>
         <section className="section-shell pt-8 sm:pt-10">
           <div className="grid gap-3 sm:grid-cols-3">
             {[
@@ -98,6 +133,59 @@ function App() {
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </a>
       </div>
+    </div>
+  );
+}
+
+function FreeToolPage() {
+  return (
+    <div className="min-h-screen overflow-hidden bg-[#fffdfb] text-cocoa">
+      <header className="border-b border-blush-100/70 bg-white/90 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+          <a
+            href={import.meta.env.BASE_URL}
+            className="flex min-w-0 items-center gap-3"
+            aria-label="love tips トップページ"
+          >
+            <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-blush-200 to-lavender-200 text-gold shadow-card">
+              <Sparkles className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <span>
+              <span className="block text-lg font-bold leading-none text-cocoa">
+                love tips
+              </span>
+              <span className="mt-1 block text-[0.72rem] font-medium text-rosewood/70">
+                無料恋愛占い
+              </span>
+            </span>
+          </a>
+          <a
+            className="inline-flex min-h-10 shrink-0 items-center rounded-full border border-blush-200 bg-white px-4 py-2 text-sm font-bold text-rosewood shadow-card transition hover:bg-blush-50"
+            href={import.meta.env.BASE_URL}
+          >
+            トップへ戻る
+          </a>
+        </div>
+      </header>
+      <main>
+        <section className="section-shell py-10 sm:py-14">
+          <div className="mx-auto mb-8 max-w-2xl text-center">
+            <p className="eyebrow mx-auto mb-4 w-fit">free tool</p>
+            <h1 className="text-[1.85rem] font-bold leading-relaxed text-cocoa sm:text-4xl">
+              無料恋愛運ミニ診断
+            </h1>
+            <p className="mt-4 text-base leading-8 text-rosewood/80">
+              ニックネーム・生年月日・今の恋愛状況を入れるだけで、今の恋の流れをかんたんに診断できます。
+            </p>
+          </div>
+          <FreeLoveFortuneTool compact />
+          <div className="mt-6 text-center">
+            <a className="btn-secondary" href={import.meta.env.BASE_URL}>
+              トップページに戻る
+            </a>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
