@@ -14,16 +14,20 @@ import SectionHeading from "./components/SectionHeading";
 import { siteLinks } from "./data/site";
 
 function App() {
-  const [hash, setHash] = useState(() => window.location.hash);
+  const [route, setRoute] = useState(() => getCurrentRoute());
 
   useEffect(() => {
-    const handleHashChange = () => setHash(window.location.hash);
+    const handleRouteChange = () => setRoute(getCurrentRoute());
 
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
+    window.addEventListener("hashchange", handleRouteChange);
+    window.addEventListener("popstate", handleRouteChange);
+    return () => {
+      window.removeEventListener("hashchange", handleRouteChange);
+      window.removeEventListener("popstate", handleRouteChange);
+    };
   }, []);
 
-  if (hash === "#free-tool") {
+  if (isFreeToolRoute(route)) {
     return <FreeToolPage />;
   }
 
@@ -135,6 +139,17 @@ function App() {
       </div>
     </div>
   );
+}
+
+function getCurrentRoute() {
+  return `${window.location.pathname}${window.location.hash}`;
+}
+
+function isFreeToolRoute(route: string) {
+  const [pathname, hash = ""] = route.split("#");
+  const normalizedPath = pathname.replace(/\/+$/, "");
+
+  return hash === "free-tool" || normalizedPath.endsWith("/free-tool");
 }
 
 function FreeToolPage() {
