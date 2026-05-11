@@ -1,5 +1,15 @@
 import type { LucideIcon } from "lucide-react";
-import { ArrowRight, Check, Gem, Heart, Moon, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  CreditCard,
+  Gem,
+  Heart,
+  LockKeyhole,
+  Moon,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { products, type Product } from "../data/products";
 
@@ -15,14 +25,49 @@ const toneStyles: Record<Product["tone"], string> = {
   beige: "border-[#f1dfbd] bg-gradient-to-br from-white to-cream",
 };
 
+const assuranceItems = [
+  {
+    text: "決済は外部決済サービスStripeで行われます",
+    icon: CreditCard,
+  },
+  {
+    text: "カード情報は当サイトでは保存されません",
+    icon: LockKeyhole,
+  },
+  {
+    text: "現在はテスト決済リンクを使用しています",
+    icon: ShieldCheck,
+  },
+  {
+    text: "鑑定結果はエンタメ・自己理解を目的とした参考情報です",
+    icon: Heart,
+  },
+];
+
 export default function MenuSection() {
   return (
     <section id="menu" className="section-shell scroll-mt-24 bg-[#fff9fb]">
       <SectionHeading
-        label="menu"
-        title="もっと詳しく占いたい方へ"
-        description="まずは無料占いでご相談ください。必要な方には、恋の状況に合わせた追加鑑定をご案内します。"
+        label="paid menu"
+        title="有料鑑定メニュー"
+        description="無料占いで気持ちを整理したあと、もう少し詳しく状況整理をしたい方に向けた恋愛鑑定メニューです。今後の選択や行動のヒントとして、無理なくご検討ください。"
       />
+
+      <div className="mb-6 rounded-[1.5rem] border border-blush-100 bg-white/85 p-4 shadow-card sm:p-5">
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {assuranceItems.map(({ text, icon: Icon }) => (
+            <li
+              key={text}
+              className="flex items-start gap-3 text-sm font-medium leading-7 text-cocoa/85"
+            >
+              <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blush-50 text-gold">
+                <Icon className="h-4 w-4" aria-hidden="true" />
+              </span>
+              {text}
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <div className="grid gap-5 lg:grid-cols-3">
         {products.map((product) => (
@@ -89,7 +134,7 @@ function ProductCard({ product }: { product: Product }) {
         href={product.ctaHref}
         target={isExternalLink ? "_blank" : undefined}
         rel={isExternalLink ? "noopener noreferrer" : undefined}
-        className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-rosewood px-5 py-3 text-sm font-bold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-cocoa"
+        className="mt-auto inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-rosewood px-5 py-3 text-sm font-bold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-cocoa focus:outline-none focus:ring-4 focus:ring-blush-200"
       >
         {product.ctaLabel}
         <ArrowRight className="h-4 w-4" aria-hidden="true" />
