@@ -3,13 +3,24 @@
 @tailwind utilities;
 
 @layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   html {
     scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   body {
     margin: 0;
-    min-width: 320px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     background: #fffdfb;
     font-family: "Noto Sans JP", ui-sans-serif, system-ui, -apple-system,
       BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -19,11 +30,32 @@
   }
 
   a {
+    max-width: 100%;
     text-decoration: none;
+    overflow-wrap: break-word;
   }
 
-  img {
+  img,
+  video,
+  iframe {
     max-width: 100%;
+    height: auto;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    max-width: 100%;
+  }
+
+  p,
+  li,
+  dd,
+  h1,
+  h2,
+  h3 {
+    overflow-wrap: break-word;
   }
 }
 
@@ -37,11 +69,22 @@
   }
 
   .btn-primary {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-rosewood px-6 py-3 text-sm font-bold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-cocoa focus:outline-none focus:ring-4 focus:ring-blush-200;
+    @apply inline-flex min-h-12 max-w-full items-center justify-center gap-2 rounded-full bg-rosewood px-6 py-3 text-center text-sm font-bold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-cocoa focus:outline-none focus:ring-4 focus:ring-blush-200;
   }
 
   .btn-secondary {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-blush-200 bg-white/90 px-6 py-3 text-sm font-bold text-rosewood shadow-card transition hover:-translate-y-0.5 hover:bg-blush-50 focus:outline-none focus:ring-4 focus:ring-lavender-100;
+    @apply inline-flex min-h-12 max-w-full items-center justify-center gap-2 rounded-full border border-blush-200 bg-white/90 px-6 py-3 text-center text-sm font-bold text-rosewood shadow-card transition hover:-translate-y-0.5 hover:bg-blush-50 focus:outline-none focus:ring-4 focus:ring-lavender-100;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-shell {
+    @apply w-full max-w-full px-4;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    @apply w-full;
   }
 }
 

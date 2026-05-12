@@ -5,7 +5,6 @@ import {
   CreditCard,
   Gem,
   Heart,
-  LockKeyhole,
   Moon,
   ShieldCheck,
   Sparkles,
@@ -27,19 +26,15 @@ const toneStyles: Record<Product["tone"], string> = {
 
 const assuranceItems = [
   {
-    text: "決済は外部決済サービスStripeで行われます",
+    text: "決済は外部決済サービスKOMOJUで行われます。カード情報は当サイトでは保存されません。",
     icon: CreditCard,
   },
   {
-    text: "カード情報は当サイトでは保存されません",
-    icon: LockKeyhole,
-  },
-  {
-    text: "現在はテスト決済リンクを使用しています",
+    text: "購入前確認ページで商品内容・返金条件・同意事項を確認できます。",
     icon: ShieldCheck,
   },
   {
-    text: "鑑定結果はエンタメ・自己理解を目的とした参考情報です",
+    text: "鑑定結果はエンタメ・自己理解・行動のヒントを目的とした参考情報です。",
     icon: Heart,
   },
 ];
@@ -134,7 +129,7 @@ function ProductCard({ product }: { product: Product }) {
         href={product.ctaHref}
         target={isExternalLink ? "_blank" : undefined}
         rel={isExternalLink ? "noopener noreferrer" : undefined}
-        className="mt-auto inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-rosewood px-5 py-3 text-sm font-bold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-cocoa focus:outline-none focus:ring-4 focus:ring-blush-200"
+        className="mt-auto inline-flex min-h-12 w-full max-w-full items-center justify-center gap-2 rounded-full bg-rosewood px-5 py-3 text-center text-sm font-bold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-cocoa focus:outline-none focus:ring-4 focus:ring-blush-200"
       >
         {product.ctaLabel}
         <ArrowRight className="h-4 w-4" aria-hidden="true" />
