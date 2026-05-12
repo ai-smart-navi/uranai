@@ -2,9 +2,14 @@ import { Instagram, Sparkles } from "lucide-react";
 import { siteLinks } from "../data/site";
 
 const footerLinks = [
-  { label: "特定商取引法に基づく表記", href: siteLinks.legal },
-  { label: "プライバシーポリシー", href: siteLinks.privacy },
   { label: "利用規約", href: siteLinks.terms },
+  { label: "プライバシーポリシー", href: siteLinks.privacy },
+  {
+    label: "特定商取引法に基づく表記",
+    href: siteLinks.commercialTransaction,
+  },
+  { label: "返金ポリシー", href: siteLinks.refund },
+  { label: "免責事項", href: siteLinks.disclaimer },
   { label: "お問い合わせ", href: siteLinks.contact },
 ];
 

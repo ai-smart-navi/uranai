@@ -94,7 +94,7 @@ function App() {
               },
               {
                 title: "無理な案内はしません",
-                text: "有料鑑定は希望する方だけ、Stripeのテスト決済リンクから確認できます。",
+                text: "有料鑑定は購入前確認ページで内容と同意事項を確認できます。",
                 icon: ShieldCheck,
               },
             ].map(({ title, text, icon: Icon }) => (

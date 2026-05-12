@@ -4,94 +4,119 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>プライバシーポリシー | love tips</title>
-    <style>
-      body {
-        margin: 0;
-        background: #fffdfb;
-        color: #3f2f34;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        line-height: 1.8;
-      }
-
-      main {
-        margin: 0 auto;
-        max-width: 760px;
-        padding: 40px 20px 64px;
-      }
-
-      h1 {
-        font-size: clamp(1.6rem, 5vw, 2.2rem);
-        line-height: 1.4;
-      }
-
-      section {
-        margin-top: 28px;
-      }
-
-      h2 {
-        font-size: 1.1rem;
-      }
-
-      p {
-        color: #7d4d5d;
-      }
-
-      a {
-        color: #8f4657;
-        font-weight: 700;
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 32px;
-      }
-
-      .button {
-        border-radius: 999px;
-        background: #8f4657;
-        color: white;
-        display: inline-flex;
-        min-height: 48px;
-        align-items: center;
-        justify-content: center;
-        padding: 0 20px;
-        text-decoration: none;
-      }
-    </style>
+    <link rel="stylesheet" href="./legal-pages.css" />
   </head>
   <body>
-    <main>
-      <p>love tips</p>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./" aria-label="love tips トップページ">
+          <span class="brand-mark">✦</span>
+          <span>
+            <span class="brand-name">love tips</span>
+            <span class="brand-sub">恋愛占い</span>
+          </span>
+        </a>
+        <a href="./#menu">鑑定メニューへ戻る</a>
+      </div>
+    </header>
+
+    <main class="shell">
+      <span class="eyebrow">privacy</span>
       <h1>プライバシーポリシー</h1>
-      <section>
-        <h2>取得する情報</h2>
-        <p>
-          鑑定に必要な範囲で、ニックネーム、相談内容、生年月日など、利用者が任意で送信した情報をお預かりします。
-        </p>
-      </section>
-      <section>
-        <h2>利用目的</h2>
-        <p>
-          お預かりした情報は、鑑定結果の作成、問い合わせ対応、有料鑑定の案内に必要な範囲で利用します。
-        </p>
-      </section>
-      <section>
-        <h2>第三者提供</h2>
-        <p>
-          法令に基づく場合を除き、本人の同意なく第三者へ提供しません。
-        </p>
-      </section>
-      <section>
-        <h2>お問い合わせ</h2>
-        <p>個人情報の取り扱いに関するお問い合わせは、LINE公式アカウントよりご連絡ください。</p>
-      </section>
-      <div class="actions">
-        <a class="button" href="https://lin.ee/sabWBtS" target="_blank" rel="noopener noreferrer">LINE友だち追加はこちら</a>
-        <a href="./">トップページへ戻る</a>
+      <p class="lead">
+        当サイトは、ユーザーの個人情報を適切に取り扱います。
+      </p>
+
+      <div class="stack">
+        <section class="card">
+          <h2>1. 取得する情報</h2>
+          <p>当サイトでは、以下の情報を取得する場合があります。</p>
+          <ul class="list">
+            <li>氏名またはニックネーム</li>
+            <li>メールアドレス</li>
+            <li>LINEアカウント名</li>
+            <li>生年月日</li>
+            <li>性別</li>
+            <li>恋愛状況</li>
+            <li>相談内容</li>
+            <li>
+              決済に関する情報。ただし、クレジットカード情報はStripeが管理し、当サイトでは保存しません。
+            </li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>2. 利用目的</h2>
+          <p>取得した情報は、以下の目的で利用します。</p>
+          <ul class="list">
+            <li>鑑定サービスの提供</li>
+            <li>決済確認</li>
+            <li>ユーザーへの連絡</li>
+            <li>問い合わせ対応</li>
+            <li>サービス改善</li>
+            <li>不正利用の防止</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>3. 第三者提供</h2>
+          <p>
+            法令に基づく場合を除き、本人の同意なく個人情報を第三者に提供しません。
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>4. 外部サービスの利用</h2>
+          <p>
+            当サイトでは、決済にStripe、連絡や鑑定情報の受け取りにLINEまたはGoogleフォーム等の外部サービスを利用する場合があります。各外部サービスにおける情報の取り扱いは、それぞれのプライバシーポリシーに従います。
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>5. 管理</h2>
+          <p>
+            取得した情報は、漏えい、紛失、不正アクセス等が起きないよう、適切に管理します。
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>6. 開示・訂正・削除</h2>
+          <p>
+            ユーザー本人から個人情報の開示、訂正、削除等の申し出があった場合、合理的な範囲で対応します。
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>7. お問い合わせ</h2>
+          <p>
+            個人情報の取り扱いに関するお問い合わせは、
+            <a href="./commercial-transaction.html">特定商取引法に基づく表記</a>
+            に記載の連絡先までお願いいたします。
+          </p>
+        </section>
       </div>
     </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <a class="brand" href="./">
+          <span class="brand-mark">✦</span>
+          <span>
+            <span class="brand-name">love tips</span>
+            <span class="brand-sub">気持ちを整理する恋愛占い</span>
+          </span>
+        </a>
+        <nav class="legal-nav" aria-label="法務リンク">
+          <a href="./terms.html">利用規約</a>
+          <a href="./privacy.html">プライバシーポリシー</a>
+          <a href="./commercial-transaction.html">特定商取引法に基づく表記</a>
+          <a href="./refund.html">返金ポリシー</a>
+          <a href="./disclaimer.html">免責事項</a>
+        </nav>
+      </div>
+      <p class="footer-copy">
+        © love tips. Fortune readings are offered as gentle hints for organizing your feelings.
+      </p>
+    </footer>
   </body>
 </html>

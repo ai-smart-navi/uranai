@@ -12,6 +12,9 @@ export type Product = {
   tone: "pink" | "lavender" | "beige";
 };
 
+const checkoutUrl = (plan: "light" | "premium" | "deep") =>
+  `${import.meta.env.BASE_URL}checkout.html?plan=${plan}`;
+
 export const products: Product[] = [
   {
     id: "love-light-reading",
@@ -26,7 +29,7 @@ export const products: Product[] = [
       "注意したいポイント",
     ],
     ctaLabel: "ライト鑑定を受ける",
-    ctaHref: "https://buy.stripe.com/test_cNi3cvcGj2KiaOp5Yr6oo00",
+    ctaHref: checkoutUrl("light"),
     icon: "heart",
     tone: "pink",
   },
@@ -43,7 +46,7 @@ export const products: Product[] = [
       "迷いやすい場面の行動のヒント",
     ],
     ctaLabel: "プレミアム鑑定を受ける",
-    ctaHref: "https://buy.stripe.com/test_4gM7sL0XB4Sq5u572v6oo01",
+    ctaHref: checkoutUrl("premium"),
     badge: "人気No.1",
     icon: "moon",
     tone: "lavender",
@@ -61,7 +64,7 @@ export const products: Product[] = [
       "行動前に見直したいポイント",
     ],
     ctaLabel: "個別深掘り鑑定を申し込む",
-    ctaHref: "https://buy.stripe.com/test_7sYfZh6hV70yg8Jfz16oo02",
+    ctaHref: checkoutUrl("deep"),
     icon: "crystal",
     tone: "beige",
   },

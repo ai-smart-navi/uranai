@@ -4,96 +4,117 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>利用規約 | love tips</title>
-    <style>
-      body {
-        margin: 0;
-        background: #fffdfb;
-        color: #3f2f34;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        line-height: 1.8;
-      }
-
-      main {
-        margin: 0 auto;
-        max-width: 760px;
-        padding: 40px 20px 64px;
-      }
-
-      h1 {
-        font-size: clamp(1.6rem, 5vw, 2.2rem);
-        line-height: 1.4;
-      }
-
-      section {
-        margin-top: 28px;
-      }
-
-      h2 {
-        font-size: 1.1rem;
-      }
-
-      p {
-        color: #7d4d5d;
-      }
-
-      a {
-        color: #8f4657;
-        font-weight: 700;
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 32px;
-      }
-
-      .button {
-        border-radius: 999px;
-        background: #8f4657;
-        color: white;
-        display: inline-flex;
-        min-height: 48px;
-        align-items: center;
-        justify-content: center;
-        padding: 0 20px;
-        text-decoration: none;
-      }
-    </style>
+    <link rel="stylesheet" href="./legal-pages.css" />
   </head>
   <body>
-    <main>
-      <p>love tips</p>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./" aria-label="love tips トップページ">
+          <span class="brand-mark">✦</span>
+          <span>
+            <span class="brand-name">love tips</span>
+            <span class="brand-sub">恋愛占い</span>
+          </span>
+        </a>
+        <a href="./#menu">鑑定メニューへ戻る</a>
+      </div>
+    </header>
+
+    <main class="shell">
+      <span class="eyebrow">terms</span>
       <h1>利用規約</h1>
-      <section>
-        <h2>サービスの性質</h2>
-        <p>
-          本サービスの鑑定内容は、恋愛や気持ちを整理するためのヒントとして提供するものです。結果や将来を保証するものではありません。
-        </p>
-      </section>
-      <section>
-        <h2>禁止事項</h2>
-        <p>
-          他者になりすました相談、第三者の権利を侵害する行為、サービス運営を妨げる行為を禁止します。
-        </p>
-      </section>
-      <section>
-        <h2>有料鑑定</h2>
-        <p>
-          有料鑑定は、利用者が希望した場合のみLINE上で詳細を案内します。内容をご確認のうえお申し込みください。
-        </p>
-      </section>
-      <section>
-        <h2>免責事項</h2>
-        <p>
-          鑑定結果をもとにした判断や行動について、最終的な責任は利用者ご本人に帰属します。
-        </p>
-      </section>
-      <div class="actions">
-        <a class="button" href="https://lin.ee/sabWBtS" target="_blank" rel="noopener noreferrer">LINE友だち追加はこちら</a>
-        <a href="./">トップページへ戻る</a>
+      <p class="lead">
+        本利用規約は、当サイトが提供する占い・鑑定サービスの利用条件を定めるものです。ユーザーは、本サービスを利用することにより、本規約に同意したものとみなします。
+      </p>
+
+      <div class="stack">
+        <section class="card">
+          <h2>第1条 サービス内容</h2>
+          <p>
+            当サイトは、恋愛や人間関係に関する占い・鑑定コンテンツを提供します。本サービスは、エンタメ・自己理解・行動のヒントを目的とした参考情報であり、特定の結果や効果を保証するものではありません。
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>第2条 禁止事項</h2>
+          <p>ユーザーは、以下の行為を行ってはなりません。</p>
+          <ul class="list">
+            <li>虚偽の情報を入力する行為</li>
+            <li>他者になりすまして利用する行為</li>
+            <li>当サイトまたは第三者に損害を与える行為</li>
+            <li>法令または公序良俗に反する行為</li>
+            <li>サービス運営を妨害する行為</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>第3条 決済</h2>
+          <p>
+            有料サービスの決済は、外部決済サービスStripeを通じて行われます。当サイトは、ユーザーのクレジットカード情報を取得または保存しません。
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>第4条 鑑定結果について</h2>
+          <p>
+            鑑定結果は、入力された情報をもとに作成される参考情報です。恋愛、結婚、仕事、健康、金銭、法律その他の重要な判断について、鑑定結果のみに依存しないでください。
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>第5条 返金・キャンセル</h2>
+          <p>
+            返金・キャンセルについては、別途定める
+            <a href="./refund.html">返金ポリシー</a>
+            に従うものとします。
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>第6条 免責</h2>
+          <p>
+            当サイトは、本サービスの利用により生じた損害について、当サイトに故意または重過失がある場合を除き、責任を負いません。
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>第7条 規約の変更</h2>
+          <p>
+            当サイトは、必要に応じて本規約を変更できるものとします。変更後の規約は、当サイト上に掲載した時点で効力を生じます。
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>第8条 お問い合わせ</h2>
+          <p>
+            本サービスに関するお問い合わせは、
+            <a href="./commercial-transaction.html">特定商取引法に基づく表記</a>
+            に記載の連絡先までお願いいたします。
+          </p>
+        </section>
       </div>
     </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <a class="brand" href="./">
+          <span class="brand-mark">✦</span>
+          <span>
+            <span class="brand-name">love tips</span>
+            <span class="brand-sub">気持ちを整理する恋愛占い</span>
+          </span>
+        </a>
+        <nav class="legal-nav" aria-label="法務リンク">
+          <a href="./terms.html">利用規約</a>
+          <a href="./privacy.html">プライバシーポリシー</a>
+          <a href="./commercial-transaction.html">特定商取引法に基づく表記</a>
+          <a href="./refund.html">返金ポリシー</a>
+          <a href="./disclaimer.html">免責事項</a>
+        </nav>
+      </div>
+      <p class="footer-copy">
+        © love tips. Fortune readings are offered as gentle hints for organizing your feelings.
+      </p>
+    </footer>
   </body>
 </html>
