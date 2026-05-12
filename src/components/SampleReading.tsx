@@ -13,7 +13,7 @@ export default function SampleReading() {
             src={assetPath("/images/decorations.png")}
             alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute -right-20 -top-24 w-56 opacity-20"
+            className="pointer-events-none absolute right-0 -top-20 w-40 opacity-20 sm:-right-20 sm:-top-24 sm:w-56"
           />
           <Moon
             className="absolute left-6 top-6 h-5 w-5 text-gold/70"
