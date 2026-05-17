@@ -47,9 +47,9 @@ function App() {
           className="section-shell scroll-mt-24 pt-8 sm:pt-10"
         >
           <SectionHeading
-            label="daily fortune"
-            title="今日の運勢ミニ診断"
-            description="ニックネーム・星座・生年月日を入れるだけで、今日の総合運と12星座ランキングをかんたんにチェックできます。"
+            label="daily check"
+            title="今日の行動ヒントチェック"
+            description="ニックネーム・生年月日・選択項目を入れるだけで、今日の状態と行動のヒントをかんたんに確認できます。"
           />
           <DailyFortuneTool />
           <div className="mt-5 text-center">
@@ -57,7 +57,7 @@ function App() {
               className="inline-flex text-sm font-bold text-rosewood underline-offset-4 hover:underline"
               href={siteLinks.dailyFortune}
             >
-              今日の運勢だけを開く
+              今日の行動ヒントだけを開く
             </a>
           </div>
         </section>
@@ -67,8 +67,8 @@ function App() {
         >
           <SectionHeading
             label="weekly love"
-            title="今週の恋愛運ミニ診断"
-            description="恋愛運は毎日大きく変わるものではないため、love tipsでは1週間に1回、今週の恋の流れを診断できます。"
+            title="今週の恋愛傾向チェック"
+            description="今の恋愛状況をもとに、気持ちの整理や今週試したい行動のヒントを確認できます。"
           />
           <FreeLoveFortuneTool />
           <div className="mt-5 text-center">
@@ -76,7 +76,7 @@ function App() {
               className="inline-flex text-sm font-bold text-rosewood underline-offset-4 hover:underline"
               href={siteLinks.freeTool}
             >
-              無料診断だけを開く
+              恋愛傾向チェックだけを開く
             </a>
           </div>
         </section>
@@ -206,7 +206,7 @@ function DailyFortunePage() {
                 love tips
               </span>
               <span className="mt-1 block text-[0.72rem] font-medium text-rosewood/70">
-                今日の運勢
+                今日の行動ヒント
               </span>
             </span>
           </a>
@@ -223,10 +223,10 @@ function DailyFortunePage() {
           <div className="mx-auto mb-8 max-w-2xl text-center">
             <p className="eyebrow mx-auto mb-4 w-fit">daily fortune</p>
             <h1 className="text-[1.85rem] font-bold leading-relaxed text-cocoa sm:text-4xl">
-              今日の運勢ミニ診断
+              今日の行動ヒントチェック
             </h1>
             <p className="mt-4 text-base leading-8 text-rosewood/80">
-              ニックネーム・星座・生年月日を入れるだけで、今日の総合運と12星座ランキングをかんたんにチェックできます。
+              ニックネーム・生年月日・選択項目を入れるだけで、今日の状態と行動のヒントをかんたんに確認できます。
             </p>
           </div>
           <DailyFortuneTool compact />
@@ -259,7 +259,7 @@ function FreeToolPage() {
                 love tips
               </span>
               <span className="mt-1 block text-[0.72rem] font-medium text-rosewood/70">
-                今週の恋愛ミニ診断
+                今週の恋愛傾向チェック
               </span>
             </span>
           </a>
@@ -276,10 +276,10 @@ function FreeToolPage() {
           <div className="mx-auto mb-8 max-w-2xl text-center">
             <p className="eyebrow mx-auto mb-4 w-fit">weekly love</p>
             <h1 className="text-[1.85rem] font-bold leading-relaxed text-cocoa sm:text-4xl">
-              今週の恋愛運ミニ診断
+              今週の恋愛傾向チェック
             </h1>
             <p className="mt-4 text-base leading-8 text-rosewood/80">
-              ニックネーム・生年月日・今の恋愛状況を入れるだけで、今週の恋の流れをかんたんに診断できます。恋愛運の診断は1週間に1回だけ行えます。
+              ニックネーム・生年月日・今の恋愛状況を入れるだけで、気持ちの整理や今週試したい行動のヒントを確認できます。
             </p>
           </div>
           <FreeLoveFortuneTool compact />

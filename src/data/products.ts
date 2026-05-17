@@ -13,8 +13,12 @@ export type Product = {
   tone: "pink" | "lavender" | "beige";
 };
 
-const checkoutUrl = (plan: "light" | "premium") =>
-  `${import.meta.env.BASE_URL}checkout.html?plan=${plan}`;
+// TODO: 本番公開前にStripe本番リンクへ差し替え
+const stripeCheckoutUrls = {
+  member: "https://buy.stripe.com/test_bJe7sL21F84CaOpbiL6oo03",
+  light: "https://buy.stripe.com/test_fZu5kD7lZ1Ge1dPfz16oo04",
+  deep: "https://buy.stripe.com/test_4gM4gzgWxacKf4F72v6oo05",
+} as const;
 
 export const products: Product[] = [
   {
@@ -34,9 +38,8 @@ export const products: Product[] = [
       "コミュニティメンバーに参加可能",
     ],
     ctaLabel: "恋愛伴走メンバーに参加する",
-    // TODO: 月額プラン決済リンクを設定
-    ctaHref: "#",
-    badge: "迷ったらこれ",
+    ctaHref: stripeCheckoutUrls.member,
+    badge: "おすすめ・メインプラン",
     featured: true,
     icon: "crystal",
     tone: "beige",
@@ -54,7 +57,7 @@ export const products: Product[] = [
       "行動アドバイス",
     ],
     ctaLabel: "ライト相談を申し込む",
-    ctaHref: checkoutUrl("light"),
+    ctaHref: stripeCheckoutUrls.light,
     icon: "heart",
     tone: "pink",
   },
@@ -74,7 +77,7 @@ export const products: Product[] = [
       "LINE・DM添削",
     ],
     ctaLabel: "深掘り相談を申し込む",
-    ctaHref: checkoutUrl("premium"),
+    ctaHref: stripeCheckoutUrls.deep,
     badge: "しっかり整理",
     icon: "moon",
     tone: "lavender",

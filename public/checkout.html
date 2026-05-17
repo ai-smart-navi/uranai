@@ -28,7 +28,7 @@
       <span class="eyebrow">checkout</span>
       <h1>購入前のご確認</h1>
       <p class="lead">
-        決済へ進む前に、相談内容・価格・提供方法・返金条件をご確認ください。決済は外部決済サービスKOMOJUで行われ、カード情報は当サイトでは保存しません。
+        決済へ進む前に、相談内容・価格・提供方法・返信ポリシー・返金条件をご確認ください。お支払いはStripeの決済ページで行われ、当サイトではクレジットカード情報を直接保存しません。
       </p>
 
       <div id="unknown-plan" class="card notice" hidden>
@@ -41,11 +41,11 @@
       <div id="checkout-content" class="grid two" hidden>
         <section class="card soft-card checkout-card">
           <span id="plan-badge" class="badge" hidden>人気No.1</span>
-          <h2 id="plan-name">商品名</h2>
+          <h2 id="plan-name">サービス名</h2>
           <p id="plan-description"></p>
           <p id="plan-price" class="price"></p>
           <p class="notice">
-            決済は外部決済サービスKOMOJUで行われます。カード情報は当サイトでは保存されません。
+            決済情報はStripeの安全な決済システム上で処理されます。
           </p>
         </section>
 
@@ -54,7 +54,7 @@
           <dl class="summary-list">
             <div>
               <dt>支払い方法</dt>
-              <dd>クレジットカード決済 / KOMOJU</dd>
+              <dd>クレジットカード決済 / Stripe</dd>
             </div>
             <div>
               <dt>提供方法</dt>
@@ -64,18 +64,18 @@
             </div>
             <div>
               <dt>提供時期</dt>
-              <dd>必要情報の確認後、原則24〜72時間以内にお届けします。</dd>
+              <dd>相談内容の確認後、順次返信します。相談件数や内容により前後する場合があります。</dd>
             </div>
             <div>
               <dt>返金について</dt>
               <dd>
-                商品の性質上、相談対応着手後の返金はできません。重複決済やシステム不具合の場合は個別に対応します。
+                オンライン相談サービスの性質上、決済完了後のキャンセル・返金は原則としてお受けしておりません。重複決済や当方都合で提供できない場合は個別に対応します。
               </dd>
             </div>
             <div>
               <dt>注意事項</dt>
               <dd>
-                相談内容の整理結果は、自己理解・心理整理・行動のヒントを目的とした参考情報です。結果を保証するものではありません。
+                本サービスは恋愛相談サポートであり、特定の結果や相手の反応をお約束するものではありません。
               </dd>
             </div>
           </dl>
@@ -95,16 +95,19 @@
               rel="noopener noreferrer"
               >特定商取引法に基づく表記</a
             >、
-            <a href="./refund.html" target="_blank" rel="noopener noreferrer">返金ポリシー</a>、
-            <a href="./disclaimer.html" target="_blank" rel="noopener noreferrer">免責事項</a>
+            <a href="./reply-policy.html" target="_blank" rel="noopener noreferrer">返信ポリシー</a>、
+            <a href="./refund.html" target="_blank" rel="noopener noreferrer">返金・キャンセルポリシー</a>
             を確認し、内容に同意します。
           </span>
         </label>
+        <p class="notice">
+          お申し込み前に、サービス内容・料金・返信ポリシー・返金・キャンセルポリシーをご確認ください。本サービスは恋愛相談サポートであり、特定の結果をお約束するものではありません。
+        </p>
         <button id="pay-button" class="button checkout-button" type="button" disabled>
-          同意して決済へ進む
+          同意してStripe決済へ進む
         </button>
         <p>
-          ボタンを押すと、外部決済サービスKOMOJUの決済ページへ移動します。
+          ボタンを押すと、Stripeの決済ページへ移動します。
         </p>
       </section>
     </main>
@@ -122,8 +125,9 @@
           <a href="./terms.html">利用規約</a>
           <a href="./privacy.html">プライバシーポリシー</a>
           <a href="./commercial-transaction.html">特定商取引法に基づく表記</a>
-          <a href="./refund.html">返金ポリシー</a>
-          <a href="./disclaimer.html">免責事項</a>
+          <a href="./reply-policy.html">返信ポリシー</a>
+          <a href="./refund.html">返金・キャンセルポリシー</a>
+          <a href="./">お問い合わせ</a>
         </nav>
       </div>
       <p class="footer-copy">
@@ -133,23 +137,33 @@
 
     <script>
       const PAYMENT_CONFIG = {
-        provider: "komoju",
-        mode: "live",
+        provider: "stripe",
+        mode: "test",
+        // TODO: 本番公開前にStripe本番リンクへ差し替え
+        member: {
+          name: "恋愛伴走メンバー",
+          price: "7,980円（税込）/ 月額",
+          description:
+            "月1回恋愛タイプ分析、週3回の恋愛心理・恋愛ノウハウ配信、チャット相談、LINE/DM添削、優先返信、行動プラン作成、コミュニティ参加を含む月額プランです。",
+          checkoutUrl:
+            "https://buy.stripe.com/test_bJe7sL21F84CaOpbiL6oo03",
+          badge: "おすすめ・メインプラン",
+        },
         light: {
           name: "ライト相談",
           price: "2,900円（税込）",
           description:
             "状況整理、価値観分析、メッセージ添削、行動アドバイスを行う単発相談です。",
           checkoutUrl:
-            "https://komoju.com/payment_links/3ebamy5syxsnnu7vr0v63koue",
+            "https://buy.stripe.com/test_fZu5kD7lZ1Ge1dPfz16oo04",
         },
-        premium: {
+        deep: {
           name: "深掘り相談",
           price: "5,900円（税込）",
           description:
             "状況整理、価値観分析、メッセージ添削、相手心理整理、行動プラン作成、LINE・DM添削まで行う単発相談です。",
           checkoutUrl:
-            "https://komoju.com/payment_links/89nx5lkmzm6zogz2d01ftl5r7",
+            "https://buy.stripe.com/test_4gM4gzgWxacKf4F72v6oo05",
           badge: "しっかり整理",
         },
       };

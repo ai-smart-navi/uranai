@@ -14,6 +14,7 @@ export const siteLinks = {
   legal: pagePath("commercial-transaction.html"),
   privacy: pagePath("privacy.html"),
   terms: pagePath("terms.html"),
+  replyPolicy: pagePath("reply-policy.html"),
   refund: pagePath("refund.html"),
   disclaimer: pagePath("disclaimer.html"),
   success: pagePath("success.html"),

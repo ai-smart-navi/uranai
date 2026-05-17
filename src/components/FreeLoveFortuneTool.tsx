@@ -30,7 +30,7 @@ import {
 
 const STORAGE_KEY = "loveTips.weeklyLoveFortune";
 const WEEKLY_DONE_MESSAGE =
-  "今週の恋愛運はすでに診断済みです。来週になると、新しい恋愛運を診断できます。";
+  "今週の恋愛傾向チェックは確認済みです。来週になると、新しいヒントを確認できます。";
 
 type FormState = {
   nickname: string;
@@ -122,7 +122,7 @@ export default function FreeLoveFortuneTool({
       !form.loveStatus ||
       !form.partnerStatus
     ) {
-      setError("すべての項目を入力すると、恋愛運を診断できます。");
+      setError("すべての項目を入力すると、恋愛傾向を確認できます。");
       setNotice("");
       setResult(null);
       return;
@@ -170,11 +170,10 @@ export default function FreeLoveFortuneTool({
             </span>
             <div>
               <h3 className="text-lg font-bold leading-7 text-cocoa">
-                今週の恋愛運ミニ診断
+                今週の恋愛傾向チェック
               </h3>
               <p className="mt-1 text-sm leading-7 text-rosewood/75">
-                恋愛運は毎日大きく変わるものではないため、love
-                tipsでは1週間に1回、今週の恋の流れを診断できます。
+                今の恋愛状況をもとに、気持ちの整理や今週試したい行動のヒントを確認できます。
               </p>
             </div>
           </div>
@@ -260,11 +259,11 @@ export default function FreeLoveFortuneTool({
           ) : null}
 
           <button className="btn-primary mt-5 w-full" type="submit">
-            今週の恋愛運を診断する
+            今週の恋愛傾向を確認する
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </button>
           <p className="mt-3 text-center text-xs leading-6 text-rosewood/55">
-            この診断はエンタメとしてお楽しみください
+            セルフチェックとしてお楽しみください
           </p>
         </form>
 
@@ -288,12 +287,12 @@ function EmptyResult({ compact }: { compact: boolean }) {
           <Heart className="h-8 w-8" aria-hidden="true" />
         </span>
         <h3 className="text-xl font-bold leading-8 text-cocoa">
-          今週の診断結果がここに表示されます
+          今週の整理結果がここに表示されます
         </h3>
         <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-rosewood/75">
           {compact
-            ? "フォームを入力すると、今週の恋愛運スコアと意識したいアドバイスを確認できます。"
-            : "ニックネーム・生年月日・今の恋愛状況を入れるだけで、今週の恋の流れをやさしく診断します。"}
+            ? "フォームを入力すると、今週の恋愛傾向スコアと意識したいアドバイスを確認できます。"
+            : "ニックネーム・生年月日・今の恋愛状況を入れるだけで、気持ちと行動のヒントをやさしく整理します。"}
         </p>
       </div>
     </div>
@@ -308,7 +307,7 @@ function FortuneResult({
   notice: string;
 }) {
   const resultItems = [
-    { label: "今週の恋の流れ", value: result.flow },
+    { label: "今週の状況整理", value: result.flow },
     { label: "あなたの魅力", value: result.charm },
     { label: "恋愛で気をつけること", value: result.caution },
     { label: "今週意識したいアドバイス", value: result.advice },
@@ -323,8 +322,8 @@ function FortuneResult({
       ) : null}
       <div className="rounded-[1.35rem] border border-white bg-white/90 p-5 text-center shadow-card">
         <p className="eyebrow mx-auto mb-4 w-fit">this week</p>
-        <p className="text-sm font-bold text-rosewood/70">
-          今週の恋愛運スコア
+          <p className="text-sm font-bold text-rosewood/70">
+          今週の恋愛傾向スコア
         </p>
         <p className="mt-2 text-6xl font-bold leading-none text-cocoa">
           {result.score}
@@ -358,7 +357,7 @@ function FortuneResult({
         <div className="rounded-[1.1rem] border border-white bg-white/85 p-4 shadow-sm">
           <p className="flex items-center gap-2 text-xs font-bold uppercase text-gold">
             <Palette className="h-4 w-4" aria-hidden="true" />
-            ラッキーカラー
+            気分を整える色
           </p>
           <p className="mt-3 flex items-center gap-3 text-sm font-bold text-cocoa">
             <span
@@ -372,7 +371,7 @@ function FortuneResult({
         <div className="rounded-[1.1rem] border border-white bg-white/85 p-4 shadow-sm">
           <p className="flex items-center gap-2 text-xs font-bold uppercase text-gold">
             <CalendarClock className="h-4 w-4" aria-hidden="true" />
-            今週のラッキーアクション
+            今週試したいアクション
           </p>
           <p className="mt-3 text-sm font-bold leading-7 text-cocoa">
             {result.luckyAction}
@@ -385,7 +384,7 @@ function FortuneResult({
           二人の関係をもっと具体的に整理したい方へ
         </h3>
         <p className="mt-3 text-sm leading-7 text-rosewood/75">
-          無料診断では“あなた一人の恋愛運”を見ています。相手心理やLINE/DMの文面、次の行動まで整えたい場合は、個別相談で詳しく整理できます。
+          無料チェックでは、今の恋愛傾向を簡単に整理しています。相手の反応やLINE/DMの文面、次の行動まで整えたい場合は、個別相談で詳しく整理できます。
         </p>
         <a
           className="btn-primary mt-5 w-full sm:w-auto"
@@ -397,7 +396,7 @@ function FortuneResult({
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </a>
         <p className="mt-3 text-xs leading-6 text-rosewood/55">
-          この診断はエンタメとしてお楽しみください
+          セルフチェックとしてお楽しみください
         </p>
       </div>
     </div>

@@ -23,12 +23,12 @@ export default function Hero() {
             恋愛相談・恋愛改善サポート
           </p>
           <h1 className="mx-auto max-w-3xl text-[1.82rem] font-bold leading-[1.45] text-cocoa min-[420px]:text-[2.05rem] sm:text-5xl lg:mx-0">
-            <span className="block">好きな人と上手くいく</span>
-            <span className="block sm:inline">タイミングと行動を、</span>
-            <span className="block sm:inline">一緒に整える恋愛相談</span>
+            <span className="block">好きな人と上手くいくために、</span>
+            <span className="block sm:inline">今の状況と次の行動を</span>
+            <span className="block sm:inline">一緒に整理する恋愛相談サービス</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-rosewood/80 sm:text-lg lg:mx-0">
-            恋愛は、タイミングと行動で変わります。悩む時間を減らして、「何をすればいいか」が分かる環境を作りました。一人で抱え込むのは、今日で終わりにしませんか？
+            恋愛は、タイミングと行動で変わります。一人で悩み続ける時間を減らし、「次に何をすればいいか」を一緒に整理します。
           </p>
 
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
@@ -44,6 +44,10 @@ export default function Hero() {
             <a className="btn-secondary" href="#menu">
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
               恋愛改善メニューを見る
+            </a>
+            <a className="btn-secondary" href="#menu">
+              <Sparkles className="h-4 w-4" aria-hidden="true" />
+              恋愛伴走メンバーを見る
             </a>
           </div>
 

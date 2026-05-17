@@ -26,7 +26,7 @@ const toneStyles: Record<Product["tone"], string> = {
 
 const assuranceItems = [
   {
-    text: "決済は外部決済サービスKOMOJUで行われます。カード情報は当サイトでは保存されません。",
+    text: "お支払いはStripeの決済ページで行われます。当サイトではカード情報を直接保存しません。",
     icon: CreditCard,
   },
   {
@@ -34,7 +34,7 @@ const assuranceItems = [
     icon: ShieldCheck,
   },
   {
-    text: "未来を断定せず、心理整理と行動のヒントとしてお届けします。",
+    text: "相手の反応や状況をもとに、次にできる行動を一緒に整理します。",
     icon: Heart,
   },
 ];
@@ -48,7 +48,7 @@ export default function MenuSection() {
       <SectionHeading
         label="romance support"
         title="恋愛改善メニュー"
-        description="無料相談で気持ちを整理したあと、LINE/DM添削や相手心理の整理、行動プラン作成まで必要な深さで選べます。"
+        description="無料相談で気持ちを整理したあと、LINE/DM添削や相手の反応整理、行動プラン作成まで必要な深さで選べます。"
       />
 
       <div className="mb-6 rounded-[1.5rem] border border-blush-100 bg-white/85 p-4 shadow-card sm:p-5">
@@ -191,6 +191,9 @@ function ProductCard({
           ))}
         </ul>
 
+        <p className="mt-5 text-xs font-medium leading-6 text-rosewood/60">
+          お申し込み前に、サービス内容・料金・返信ポリシー・返金・キャンセルポリシーをご確認ください。本サービスは恋愛相談サポートであり、特定の結果をお約束するものではありません。
+        </p>
         <a
           href={product.ctaHref}
           target={isExternalLink ? "_blank" : undefined}

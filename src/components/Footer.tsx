@@ -8,8 +8,8 @@ const footerLinks = [
     label: "特定商取引法に基づく表記",
     href: siteLinks.commercialTransaction,
   },
-  { label: "返金ポリシー", href: siteLinks.refund },
-  { label: "免責事項", href: siteLinks.disclaimer },
+  { label: "返信ポリシー", href: siteLinks.replyPolicy },
+  { label: "返金・キャンセルポリシー", href: siteLinks.refund },
   { label: "お問い合わせ", href: siteLinks.contact },
 ];
 

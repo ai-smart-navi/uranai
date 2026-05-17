@@ -60,7 +60,7 @@ export default function DailyFortuneTool({
     }
 
     if (!form.nickname.trim() || !form.zodiac) {
-      setError("ニックネーム・星座・生年月日を入力してください。");
+      setError("ニックネーム・タイプ・生年月日を入力してください。");
       setResult(null);
       return;
     }
@@ -97,10 +97,10 @@ export default function DailyFortuneTool({
             </span>
             <div>
               <h3 className="text-lg font-bold leading-7 text-cocoa">
-                今日の運勢ミニ診断
+                今日の行動ヒントチェック
               </h3>
               <p className="mt-1 text-sm leading-7 text-rosewood/75">
-                ニックネーム・星座・生年月日を入れるだけで、今日の総合運と12星座ランキングをかんたんにチェックできます。
+                ニックネーム・生年月日・選択項目を入れるだけで、今日の状態と行動のヒントをかんたんに確認できます。
               </p>
             </div>
           </div>
@@ -122,7 +122,7 @@ export default function DailyFortuneTool({
             </label>
 
             <label className="grid gap-2 text-sm font-bold text-cocoa">
-              星座
+              タイプ
               <select
                 className="min-h-12 rounded-2xl border border-lavender-100 bg-white px-4 text-base font-medium text-cocoa outline-none transition focus:border-lavender-200 focus:ring-4 focus:ring-lavender-100"
                 value={form.zodiac}
@@ -157,11 +157,11 @@ export default function DailyFortuneTool({
           ) : null}
 
           <button className="btn-primary mt-5 w-full" type="submit">
-            今日の運勢を診断する
+            今日の行動ヒントを見る
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </button>
           <p className="mt-3 text-center text-xs leading-6 text-rosewood/55">
-            この診断はエンタメとしてお楽しみください
+            セルフチェックとしてお楽しみください
           </p>
         </form>
 
@@ -192,12 +192,12 @@ function EmptyDailyResult({
             <Sparkles className="h-8 w-8" aria-hidden="true" />
           </span>
           <h3 className="text-xl font-bold leading-8 text-cocoa">
-            今日の診断結果がここに表示されます
+            今日の整理結果がここに表示されます
           </h3>
           <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-rosewood/75">
             {compact
-              ? "今日の総合運と、あなたの星座が12星座中何位かを確認できます。"
-              : "毎日変わる運勢と12星座ランキングを、やさしい言葉でお届けします。"}
+              ? "今日のコンディションと、行動を見直すヒントを確認できます。"
+              : "今日の状態と行動のヒントを、やさしい言葉でお届けします。"}
           </p>
         </div>
       </div>
@@ -212,10 +212,10 @@ function DailyFortuneResultView({
   result: DailyFortuneResult;
 }) {
   const resultItems = [
-    { label: "今日の全体運", value: result.general, icon: Sparkles },
-    { label: "今日の恋愛運", value: result.love, icon: Heart },
-    { label: "今日の仕事・勉強運", value: result.work, icon: Briefcase },
-    { label: "今日の金運", value: result.money, icon: Coins },
+    { label: "今日の全体傾向", value: result.general, icon: Sparkles },
+    { label: "今日の恋愛傾向", value: result.love, icon: Heart },
+    { label: "仕事・勉強の見直し", value: result.work, icon: Briefcase },
+    { label: "お金まわりの見直し", value: result.money, icon: Coins },
   ];
 
   return (
@@ -224,7 +224,7 @@ function DailyFortuneResultView({
         <div className="rounded-[1.35rem] border border-white bg-white/90 p-5 text-center shadow-card">
           <p className="eyebrow mx-auto mb-4 w-fit">today</p>
           <p className="text-sm font-bold text-rosewood/70">
-            今日の総合運スコア
+            今日のコンディションスコア
           </p>
           <p className="mt-2 text-6xl font-bold leading-none text-cocoa">
             {result.score}
@@ -240,14 +240,14 @@ function DailyFortuneResultView({
         <div className="rounded-[1.35rem] border border-white bg-white/90 p-5 text-center shadow-card">
           <p className="eyebrow mx-auto mb-4 w-fit">ranking</p>
           <p className="text-sm font-bold text-rosewood/70">
-            今日の運勢ランキング
+            今日の傾向ランキング
           </p>
           <p className="mt-3 text-5xl font-bold leading-none text-cocoa">
             {result.rank}
             <span className="ml-1 text-xl text-rosewood/60">位</span>
           </p>
           <p className="mt-3 text-sm font-bold text-rosewood/70">
-            12星座中
+            12タイプ中
           </p>
         </div>
       </div>
@@ -273,7 +273,7 @@ function DailyFortuneResultView({
         <div className="rounded-[1.1rem] border border-white bg-white/85 p-4 shadow-sm">
           <p className="flex items-center gap-2 text-xs font-bold uppercase text-gold">
             <Palette className="h-4 w-4" aria-hidden="true" />
-            ラッキーカラー
+            気分を整える色
           </p>
           <p className="mt-3 flex items-center gap-3 text-sm font-bold text-cocoa">
             <span
@@ -286,7 +286,7 @@ function DailyFortuneResultView({
         </div>
         <div className="rounded-[1.1rem] border border-white bg-white/85 p-4 shadow-sm">
           <p className="text-xs font-bold uppercase text-gold">
-            ラッキーアイテム
+            気分を整えるアイテム
           </p>
           <p className="mt-3 text-sm font-bold leading-7 text-cocoa">
             {result.luckyItem}
@@ -318,7 +318,7 @@ function RankingList({
   return (
     <div className="mt-4 rounded-[1.35rem] border border-white bg-white/80 p-4 shadow-sm">
       <h3 className="text-base font-bold leading-7 text-cocoa">
-        今日の12星座ランキング
+          今日の12タイプ傾向
       </h3>
       <div className="mt-3 grid gap-2 sm:grid-cols-2">
         {ranking.map((zodiac, index) => {
