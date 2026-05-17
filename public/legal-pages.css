@@ -193,6 +193,11 @@ td {
   font-size: 1rem;
 }
 
+.compact-legal-copy {
+  font-size: 0.86rem;
+  line-height: 1.75;
+}
+
 .stack {
   display: grid;
   gap: 18px;
@@ -317,6 +322,11 @@ td {
   padding: 14px 16px;
 }
 
+.compact-note {
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
 .price {
   margin-top: 8px;
   color: var(--cocoa);
@@ -396,6 +406,13 @@ td {
 
 .legal-table td {
   color: var(--muted);
+}
+
+.compact-legal-table th,
+.compact-legal-table td {
+  padding: 10px 10px;
+  font-size: 0.86rem;
+  line-height: 1.7;
 }
 
 .form-link-box {

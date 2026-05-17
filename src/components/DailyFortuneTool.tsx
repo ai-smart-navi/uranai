@@ -160,8 +160,8 @@ export default function DailyFortuneTool({
             今日の行動ヒントを見る
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </button>
-          <p className="mt-3 text-center text-xs leading-6 text-rosewood/55">
-            セルフチェックとしてお楽しみください
+          <p className="mt-3 rounded-2xl bg-white/80 px-4 py-3 text-xs leading-6 text-rosewood/60">
+            入力内容は外部へ送信されず、この画面内のセルフチェックにのみ利用されます。氏名・住所・電話番号・LINE IDなどの個人情報は入力しないでください。
           </p>
         </form>
 

@@ -24,7 +24,6 @@ import {
   emptyBirthdayParts,
   formatBirthdayParts,
   getCurrentWeekKey,
-  parseBirthday,
   type BirthdayParts,
 } from "../lib/dateUtils";
 
@@ -42,7 +41,6 @@ type FormState = {
 
 type StoredWeeklyLoveFortune = {
   weekKey: string;
-  input: FreeLoveFortuneInput;
   result: FreeLoveFortuneResult;
   diagnosedAt: string;
 };
@@ -75,13 +73,6 @@ export default function FreeLoveFortuneTool({
       return;
     }
 
-    setForm({
-      nickname: stored.input.nickname,
-      gender: stored.input.gender,
-      birthday: parseBirthday(stored.input.birthday),
-      loveStatus: stored.input.loveStatus,
-      partnerStatus: stored.input.partnerStatus,
-    });
     setResult(stored.result);
     setNotice(WEEKLY_DONE_MESSAGE);
   }, [weekKey]);
@@ -95,13 +86,6 @@ export default function FreeLoveFortuneTool({
 
     const stored = readStoredWeeklyFortune(weekKey);
     if (stored) {
-      setForm({
-        nickname: stored.input.nickname,
-        gender: stored.input.gender,
-        birthday: parseBirthday(stored.input.birthday),
-        loveStatus: stored.input.loveStatus,
-        partnerStatus: stored.input.partnerStatus,
-      });
       setResult(stored.result);
       setNotice(WEEKLY_DONE_MESSAGE);
       setError("");
@@ -140,7 +124,6 @@ export default function FreeLoveFortuneTool({
 
     writeStoredWeeklyFortune({
       weekKey,
-      input,
       result: nextResult,
       diagnosedAt: new Date().toISOString(),
     });
@@ -262,8 +245,8 @@ export default function FreeLoveFortuneTool({
             今週の恋愛傾向を確認する
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </button>
-          <p className="mt-3 text-center text-xs leading-6 text-rosewood/55">
-            セルフチェックとしてお楽しみください
+          <p className="mt-3 rounded-2xl bg-white/80 px-4 py-3 text-xs leading-6 text-rosewood/60">
+            入力内容は外部へ送信されません。週1回の確認制御のため、整理結果のみこのブラウザ内に保存される場合があります。氏名・住所・電話番号・LINE IDなどの個人情報は入力しないでください。
           </p>
         </form>
 

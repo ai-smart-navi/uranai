@@ -102,8 +102,14 @@
           </span>
         </label>
         <p class="notice">
-          お申し込み前に、サービス内容・料金・返信ポリシー・返金ポリシーをご確認ください。本サービスは恋愛相談サポートであり、特定の結果を保証するものではありません。
+          お申し込み前に、サービス内容・料金・返信ポリシー・返金・キャンセルポリシー・特定商取引法に基づく表記をご確認ください。本サービスは恋愛相談・状況整理・文章添削・行動提案を目的としたオンライン相談サービスであり、特定の成果や相手の反応を保証するものではありません。
         </p>
+        <div id="monthly-notice" class="notice compact-note" hidden>
+          <p>このプランは月額7,980円の定期課金サービスです。</p>
+          <p>お申し込み後、解約手続きが完了するまで毎月自動で決済されます。</p>
+          <p>解約を希望される場合は、次回更新日前までに指定の方法でご連絡ください。</p>
+          <p>決済済み期間の日割り返金は原則として行っておりません。</p>
+        </div>
         <button id="pay-button" class="button checkout-button" type="button" disabled>
           同意してStripe決済へ進む
         </button>
@@ -176,6 +182,7 @@
       const agreementSection = document.getElementById("agreement-section");
       const agree = document.getElementById("agree");
       const payButton = document.getElementById("pay-button");
+      const monthlyNotice = document.getElementById("monthly-notice");
 
       if (!selectedPlan) {
         unknownPlan.hidden = false;
@@ -189,6 +196,10 @@
           const badge = document.getElementById("plan-badge");
           badge.textContent = selectedPlan.badge;
           badge.hidden = false;
+        }
+
+        if (params.get("plan") === "member") {
+          monthlyNotice.hidden = false;
         }
 
         checkoutContent.hidden = false;

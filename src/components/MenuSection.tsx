@@ -42,6 +42,16 @@ const assuranceItems = [
   },
 ];
 
+const checkoutNotice =
+  "お申し込み前に、サービス内容・料金・返信ポリシー・返金・キャンセルポリシー・特定商取引法に基づく表記をご確認ください。本サービスは恋愛相談・状況整理・文章添削・行動提案を目的としたオンライン相談サービスであり、特定の成果や相手の反応を保証するものではありません。";
+
+const monthlyPlanNotice = [
+  "このプランは月額7,980円の定期課金サービスです。",
+  "お申し込み後、解約手続きが完了するまで毎月自動で決済されます。",
+  "解約を希望される場合は、次回更新日前までに指定の方法でご連絡ください。",
+  "決済済み期間の日割り返金は原則として行っておりません。",
+];
+
 export default function MenuSection() {
   const mainProduct = products.find((product) => product.featured);
   const singleProducts = products.filter((product) => !product.featured);
@@ -233,7 +243,7 @@ function ProductCard({
         </ul>
 
         <p className="mt-5 text-xs font-medium leading-6 text-rosewood/60">
-          お申し込み前に、サービス内容・料金・返信ポリシー・返金ポリシーをご確認ください。本サービスは恋愛相談サポートであり、特定の結果を保証するものではありません。
+          {checkoutNotice}
         </p>
         <button
           type="button"
@@ -245,9 +255,11 @@ function ProductCard({
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </button>
         {featured ? (
-          <p className="mt-3 text-xs font-medium leading-6 text-rosewood/60">
-            月額プランは継続的な相談・添削・行動整理をしたい方向けです。
-          </p>
+          <div className="mt-3 rounded-[1rem] border border-gold/25 bg-white/80 px-4 py-3 text-xs font-medium leading-6 text-rosewood/65">
+            {monthlyPlanNotice.map((notice) => (
+              <p key={notice}>{notice}</p>
+            ))}
+          </div>
         ) : null}
       </div>
     </article>
@@ -363,8 +375,7 @@ function PreCheckoutModal({
           <ModalInfoBlock
             title="注意事項"
             items={[
-              "本サービスは恋愛相談・状況整理・文章添削・行動提案を目的とするオンライン相談サービスです。",
-              "特定の成果や相手の反応を保証するものではありません。",
+              checkoutNotice,
               "医療行為、心理療法、法律相談、その他専門資格を要する助言を提供するものではありません。",
             ]}
           />
