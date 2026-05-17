@@ -8,64 +8,75 @@ export type Product = {
   ctaHref: string;
   priceNote?: string;
   badge?: string;
+  featured?: boolean;
   icon: "heart" | "moon" | "crystal";
   tone: "pink" | "lavender" | "beige";
 };
 
-const checkoutUrl = (plan: "light" | "premium" | "deep") =>
+const checkoutUrl = (plan: "light" | "premium") =>
   `${import.meta.env.BASE_URL}checkout.html?plan=${plan}`;
 
 export const products: Product[] = [
   {
-    id: "love-light-reading",
-    title: "恋愛ライト鑑定",
+    id: "romance-support-member",
+    title: "恋愛伴走メンバー",
+    price: "7,980円",
+    priceNote: "/ 月額",
+    description:
+      "迷ったらまず選びたい、恋愛改善のメインプランです。日々の不安やLINEの文面を一人で抱え込まず、行動まで一緒に整えていきます。",
+    features: [
+      "月1回恋愛タイプ分析",
+      "週3回恋愛心理・恋愛ノウハウ配信（月12本程度）",
+      "チャット相談し放題",
+      "LINE/DM添削",
+      "優先返信",
+      "行動プラン作成",
+      "コミュニティメンバーに参加可能",
+    ],
+    ctaLabel: "恋愛伴走メンバーに参加する",
+    // TODO: 月額プラン決済リンクを設定
+    ctaHref: "#",
+    badge: "迷ったらこれ",
+    featured: true,
+    icon: "crystal",
+    tone: "beige",
+  },
+  {
+    id: "light-consultation",
+    title: "ライト相談",
     price: "2,900円",
     description:
-      "今の恋愛状況を整理し、これからの動き方や注意点を簡潔にお届けするお試し鑑定です。",
+      "いまの状況を短時間で整理し、次に取りやすい行動をやさしくまとめる単発相談です。",
     features: [
-      "今の気持ちを整理する",
-      "恋愛状況の簡単な見立て",
-      "行動のヒント",
-      "注意したいポイント",
+      "状況整理",
+      "価値観分析",
+      "メッセージ添削",
+      "行動アドバイス",
     ],
-    ctaLabel: "ライト鑑定を受ける",
+    ctaLabel: "ライト相談を申し込む",
     ctaHref: checkoutUrl("light"),
     icon: "heart",
     tone: "pink",
   },
   {
-    id: "love-premium-reading",
-    title: "恋愛プレミアム鑑定",
+    id: "deep-consultation",
+    title: "深掘り相談",
     price: "5,900円",
     description:
-      "お相手との関係性・今後の流れ・距離の縮め方をより詳しく見ていく人気の鑑定プランです。",
+      "相手心理や今後の動き方まで整理し、LINE・DMの具体的な文面と行動プランまで一緒に作る単発相談です。",
     features: [
-      "お相手との関係性の整理",
-      "今後の流れの参考情報",
-      "距離の縮め方",
-      "迷いやすい場面の行動のヒント",
+      "状況整理",
+      "価値観分析",
+      "メッセージ添削",
+      "行動アドバイス",
+      "相手心理整理",
+      "行動プラン作成",
+      "LINE・DM添削",
     ],
-    ctaLabel: "プレミアム鑑定を受ける",
+    ctaLabel: "深掘り相談を申し込む",
     ctaHref: checkoutUrl("premium"),
-    badge: "人気No.1",
+    badge: "しっかり整理",
     icon: "moon",
     tone: "lavender",
-  },
-  {
-    id: "love-deep-reading",
-    title: "恋愛個別深掘り鑑定",
-    price: "11,900円",
-    description:
-      "現在の状況をもとに、恋愛の悩みや今後の選択を丁寧に整理する個別向けの鑑定です。",
-    features: [
-      "個別のお悩みの状況整理",
-      "今後の選択肢の整理",
-      "気持ちを整える視点",
-      "行動前に見直したいポイント",
-    ],
-    ctaLabel: "個別深掘り鑑定を申し込む",
-    ctaHref: checkoutUrl("deep"),
-    icon: "crystal",
-    tone: "beige",
   },
 ];

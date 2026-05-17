@@ -8,7 +8,7 @@ const trustItems = [
     icon: UserRoundCheck,
   },
   {
-    title: "やさしい言葉で鑑定",
+    title: "やさしい言葉でサポート",
     description: "不安を強める言い切りではなく、気持ちを整える表現を大切にします。",
     icon: HeartHandshake,
   },
@@ -19,7 +19,7 @@ const trustItems = [
   },
   {
     title: "内容は外部に公開しません",
-    description: "相談内容は鑑定目的の範囲でのみ扱います。",
+    description: "相談内容はサポート目的の範囲でのみ扱います。",
     icon: LockKeyhole,
   },
 ];

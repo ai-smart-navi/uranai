@@ -5,7 +5,7 @@ import { assetPath } from "../lib/assets";
 export default function SampleReading() {
   return (
     <section className="section-shell bg-[#fffaf5]">
-      <SectionHeading label="sample" title="サンプル鑑定" />
+      <SectionHeading label="sample" title="相談サンプル" />
 
       <div className="mx-auto max-w-3xl">
         <div className="relative overflow-hidden rounded-[1.75rem] border border-[#f1dfbd] bg-white px-6 py-8 shadow-soft sm:px-10">
@@ -27,13 +27,13 @@ export default function SampleReading() {
             <p>あなたは相手に安心感を与えるタイプです。</p>
             <p>ただ、自分の気持ちを我慢しすぎる傾向があります。</p>
             <p>
-              今は一気に距離を縮めるより、軽い会話を増やす時期です。
+              今は一気に距離を縮めるより、相手が返しやすい軽い会話を増やすのがおすすめです。
             </p>
           </div>
           <div className="mt-7 flex justify-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-blush-50 px-4 py-2 text-xs font-bold text-rosewood">
               <Sparkles className="h-4 w-4 text-gold" aria-hidden="true" />
-              行動のヒントとしてお届けします
+              心理整理と行動のヒントとしてお届けします
             </span>
           </div>
         </div>

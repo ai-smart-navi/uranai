@@ -27,7 +27,7 @@ export default function Footer() {
                 love tips
               </p>
               <p className="mt-1 text-xs font-medium text-rosewood/70">
-                彼の本音と、あなたの恋の流れをやさしく読み解く恋愛占い
+                恋愛相談・LINE/DM添削・行動プラン作成の伴走サポート
               </p>
             </div>
           </div>
@@ -61,8 +61,8 @@ export default function Footer() {
         </nav>
       </div>
       <p className="mx-auto mt-8 max-w-6xl text-xs text-rosewood/50">
-        © love tips. Fortune readings are offered as gentle hints for organizing
-        your feelings.
+        © love tips. Love support is offered as gentle hints for organizing your
+        feelings and next actions.
       </p>
     </footer>
   );

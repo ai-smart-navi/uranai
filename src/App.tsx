@@ -6,6 +6,7 @@ import DailyFortuneTool from "./components/DailyFortuneTool";
 import FreeLoveFortuneTool from "./components/FreeLoveFortuneTool";
 import ProblemSection from "./components/ProblemSection";
 import MenuSection from "./components/MenuSection";
+import CommunitySection from "./components/CommunitySection";
 import FlowSection from "./components/FlowSection";
 import SampleReading from "./components/SampleReading";
 import TrustSection from "./components/TrustSection";
@@ -94,7 +95,7 @@ function App() {
               },
               {
                 title: "無理な案内はしません",
-                text: "有料鑑定は購入前確認ページで内容と同意事項を確認できます。",
+                text: "有料相談は購入前確認ページで内容と同意事項を確認できます。",
                 icon: ShieldCheck,
               },
             ].map(({ title, text, icon: Icon }) => (
@@ -117,6 +118,7 @@ function App() {
         </section>
         <ProblemSection />
         <MenuSection />
+        <CommunitySection />
         <FlowSection />
         <SampleReading />
         <TrustSection />
@@ -129,8 +131,11 @@ function App() {
             />
             <p className="eyebrow mx-auto mb-4 w-fit">love tips</p>
             <h2 className="mx-auto max-w-2xl text-2xl font-bold leading-relaxed text-cocoa sm:text-3xl">
-              ひとりで悩み続ける前に、恋の流れを少しだけ整理してみませんか？
+              一人で抱え込むのは、今日で終わりにしませんか？
             </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm font-medium leading-7 text-rosewood/75 sm:text-base sm:leading-8">
+              恋愛は、タイミングと行動で変わります。悩む時間を減らして、何をすればいいかを一緒に整理しましょう。
+            </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <a
                 className="btn-primary"
@@ -138,7 +143,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                LINEで無料占いを申し込む
+                LINEで無料相談を申し込む
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
               <a className="btn-secondary" href="#faq">
@@ -157,7 +162,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          LINEで無料占いを申し込む
+          LINEで無料相談を申し込む
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </a>
       </div>
@@ -254,7 +259,7 @@ function FreeToolPage() {
                 love tips
               </span>
               <span className="mt-1 block text-[0.72rem] font-medium text-rosewood/70">
-                今週の恋愛占い
+                今週の恋愛ミニ診断
               </span>
             </span>
           </a>

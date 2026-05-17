@@ -4,22 +4,22 @@ import SectionHeading from "./SectionHeading";
 const steps = [
   {
     title: "LINEで友だち追加",
-    description: "無料占いのボタンから、LINE公式アカウントを追加します。",
+    description: "無料相談のボタンから、LINE公式アカウントを追加します。",
     icon: WandSparkles,
   },
   {
-    title: "無料占い希望と送る",
-    description: "トーク画面で「無料占い希望」と送ると、案内が届きます。",
+    title: "無料相談希望と送る",
+    description: "トーク画面で「無料相談希望」と送ると、案内が届きます。",
     icon: MessageCircle,
   },
   {
     title: "相談内容を送る",
-    description: "片思い・復縁・相性など、今の悩みを1つ選んで送ります。",
+    description: "片思い・復縁・連絡の不安など、今の悩みを1つ選んで送ります。",
     icon: FileText,
   },
   {
-    title: "LINEで結果を受け取る",
-    description: "恋の状況を整理した鑑定結果を、LINEでお届けします。",
+    title: "LINEで整理内容を受け取る",
+    description: "恋の状況と次に試したい行動ヒントを、LINEでお届けします。",
     icon: Gift,
   },
 ];
@@ -29,7 +29,7 @@ export default function FlowSection() {
     <section id="flow" className="section-shell scroll-mt-24">
       <SectionHeading
         label="flow"
-        title="無料占いの流れ"
+        title="無料相談の流れ"
         description="Instagramから来た方も、スマホだけでかんたんに申し込めます。"
       />
 

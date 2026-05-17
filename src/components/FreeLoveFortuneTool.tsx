@@ -382,10 +382,10 @@ function FortuneResult({
 
       <div className="mt-5 rounded-[1.35rem] border border-blush-100 bg-hero-glow p-5 text-center shadow-card">
         <h3 className="text-lg font-bold leading-7 text-cocoa">
-          二人の関係をもっと詳しく知りたい方へ
+          二人の関係をもっと具体的に整理したい方へ
         </h3>
         <p className="mt-3 text-sm leading-7 text-rosewood/75">
-          無料診断では“あなた一人の恋愛運”を見ています。相手の気持ち・相性・今後の流れまで知りたい場合は、追加鑑定で詳しく整理できます。
+          無料診断では“あなた一人の恋愛運”を見ています。相手心理やLINE/DMの文面、次の行動まで整えたい場合は、個別相談で詳しく整理できます。
         </p>
         <a
           className="btn-primary mt-5 w-full sm:w-auto"

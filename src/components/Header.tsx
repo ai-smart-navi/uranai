@@ -18,7 +18,7 @@ export default function Header() {
               love tips
             </span>
             <span className="mt-1 block text-[0.72rem] font-medium text-rosewood/70">
-              恋愛占い
+              恋愛改善サポート
             </span>
           </span>
         </a>
@@ -31,7 +31,10 @@ export default function Header() {
             今週の恋愛運
           </a>
           <a className="hover:text-rosewood" href="#menu">
-            鑑定メニュー
+            恋愛改善メニュー
+          </a>
+          <a className="hover:text-rosewood" href="#community">
+            コミュニティ
           </a>
           <a className="hover:text-rosewood" href="#faq">
             FAQ
@@ -45,7 +48,7 @@ export default function Header() {
           className="inline-flex min-h-10 shrink-0 items-center gap-2 rounded-full bg-cocoa px-3 py-2 text-sm font-bold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-rosewood sm:px-4"
         >
           <MessageCircle className="h-4 w-4" aria-hidden="true" />
-          <span className="hidden min-[360px]:inline">無料占い</span>
+          <span className="hidden min-[360px]:inline">無料相談</span>
           <span className="min-[360px]:hidden">無料</span>
         </a>
       </div>

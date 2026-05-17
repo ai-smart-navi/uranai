@@ -1,6 +1,6 @@
-# love tips 恋愛占いLP
+# love tips 恋愛相談LP
 
-Instagram占いアカウント `@love_tips000` からの流入を想定した、恋愛占い販売用のスマホファーストLPです。
+Instagramアカウント `@love_tips000` からの流入を想定した、恋愛相談・恋愛改善サポート用のスマホファーストLPです。
 
 ## セットアップ
 
@@ -22,7 +22,7 @@ cmd /c npm.cmd run dev
 
 ## 編集するファイル
 
-- 商品名・価格・説明・鑑定内容・申し込みリンク・人気バッジ  
+- 商品名・価格・説明・相談内容・申し込みリンク・人気バッジ
   `src/data/products.ts`
 - FAQの質問と回答  
   `src/data/faqs.ts`

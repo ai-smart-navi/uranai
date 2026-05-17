@@ -22,7 +22,7 @@ const problems = [
     icon: Heart,
   },
   {
-    text: "復縁できる可能性を知りたい",
+    text: "復縁に向けた動き方を整理したい",
     icon: RefreshCcw,
   },
   {
@@ -30,7 +30,7 @@ const problems = [
     icon: Route,
   },
   {
-    text: "相性がいいのか知りたい",
+    text: "LINE・DMの文面に迷っている",
     icon: UsersRound,
   },
 ];
@@ -41,7 +41,7 @@ export default function ProblemSection() {
       <SectionHeading
         label="feelings"
         title="こんな恋の悩みはありませんか？"
-        description="言葉にしづらい不安も、いまの恋の流れとしてやさしく整理していきます。"
+        description="言葉にしづらい不安も、心理整理と次の行動に分けてやさしく整えていきます。"
       />
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {problems.map(({ text, icon: Icon }) => (

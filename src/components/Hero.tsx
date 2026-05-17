@@ -20,15 +20,15 @@ export default function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
         <div className="animate-fade-up text-center lg:text-left">
           <p className="eyebrow mx-auto mb-5 w-fit lg:mx-0">
-            Instagramから来た方へ
+            恋愛相談・恋愛改善サポート
           </p>
           <h1 className="mx-auto max-w-3xl text-[1.82rem] font-bold leading-[1.45] text-cocoa min-[420px]:text-[2.05rem] sm:text-5xl lg:mx-0">
-            <span className="block">LINEで無料恋愛占い</span>
-            <span className="block sm:inline">彼の本音と、</span>
-            <span className="block sm:inline">恋の流れをやさしく整理</span>
+            <span className="block">好きな人と上手くいく</span>
+            <span className="block sm:inline">タイミングと行動を、</span>
+            <span className="block sm:inline">一緒に整える恋愛相談</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-rosewood/80 sm:text-lg lg:mx-0">
-            友だち追加後に「無料占い希望」と送るだけ。片思い・復縁・相性の悩みを、スマホから気軽に相談できます。
+            恋愛は、タイミングと行動で変わります。悩む時間を減らして、「何をすればいいか」が分かる環境を作りました。一人で抱え込むのは、今日で終わりにしませんか？
           </p>
 
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
@@ -38,20 +38,20 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              LINEで無料占いを申し込む
+              LINEで無料相談を試す
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
-            <a className="btn-secondary" href="#faq">
+            <a className="btn-secondary" href="#menu">
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
-              よくある質問を見る
+              恋愛改善メニューを見る
             </a>
           </div>
 
           <div className="mx-auto mt-8 grid w-full max-w-md grid-cols-3 gap-2 text-left min-[420px]:gap-3 lg:mx-0">
             {[
-              ["片思い", "気持ちを整理"],
-              ["相性", "距離感を確認"],
-              ["復縁", "可能性を読む"],
+              ["相談", "気持ちを整理"],
+              ["LINE/DM", "文面を添削"],
+              ["行動", "次の一手を作成"],
             ].map(([title, text]) => (
               <div
                 key={title}
@@ -80,7 +80,7 @@ export default function Hero() {
           <div className="relative rounded-[2.25rem] border border-white/90 bg-white/70 p-3 shadow-soft backdrop-blur">
             <img
               src={assetPath("/images/hero-visual.png")}
-              alt="水晶を持つ占い師風の女性イラスト"
+              alt="恋愛相談のやさしい雰囲気を表す女性イラスト"
               className="aspect-[4/5] w-full rounded-[1.75rem] object-cover object-center"
             />
           </div>
