@@ -6,6 +6,13 @@ export type Product = {
   features: string[];
   ctaLabel: string;
   ctaHref: string;
+  paymentLabel: string;
+  planType: "単発相談" | "月額プラン・定期課金";
+  serviceTiming: string[];
+  replyPolicy: string[];
+  cancellationPolicy: string[];
+  recurringNotes?: string[];
+  cancellationNotes?: string[];
   priceNote?: string;
   badge?: string;
   featured?: boolean;
@@ -13,12 +20,26 @@ export type Product = {
   tone: "pink" | "lavender" | "beige";
 };
 
-// TODO: 本番公開前にStripe本番リンクへ差し替え
+// TODO: 本番公開前にStripe本番決済リンクへ差し替える
 const stripeCheckoutUrls = {
   member: "https://buy.stripe.com/test_bJe7sL21F84CaOpbiL6oo03",
   light: "https://buy.stripe.com/test_fZu5kD7lZ1Ge1dPfz16oo04",
   deep: "https://buy.stripe.com/test_4gM4gzgWxacKf4F72v6oo05",
 } as const;
+
+const singleConsultationTiming = [
+  "決済確認後、相談内容の確認後に順次対応します。",
+  "相談件数や内容により、返信までの時間が前後する場合があります。",
+];
+
+const singleReplyPolicy = [
+  "即時返信、緊急対応、24時間以内の返信を保証するものではありません。",
+];
+
+const singleCancellationPolicy = [
+  "オンライン相談サービスの性質上、決済完了後のキャンセル・返金は原則としてお受けしておりません。",
+  "ただし、重複決済や当方都合によりサービス提供ができない場合は個別に対応します。",
+];
 
 export const products: Product[] = [
   {
@@ -39,6 +60,29 @@ export const products: Product[] = [
     ],
     ctaLabel: "恋愛伴走メンバーに参加する",
     ctaHref: stripeCheckoutUrls.member,
+    paymentLabel: "内容に同意して月額プランに申し込む",
+    planType: "月額プラン・定期課金",
+    recurringNotes: [
+      "このプランは月額7,980円の定期課金サービスです。",
+      "お申し込み後、解約手続きが完了するまで毎月自動で決済されます。",
+      "次回決済日はStripe決済ページまたは決済後の案内をご確認ください。",
+    ],
+    cancellationNotes: [
+      "解約を希望される場合は、次回更新日前までに指定の方法でご連絡ください。",
+      "解約後も、すでに決済済みの期間についての日割り返金は原則として行っておりません。",
+    ],
+    serviceTiming: [
+      "決済確認後、案内に従ってサービス提供を開始します。",
+      "配信内容や相談対応は、運営状況により提供タイミングが前後する場合があります。",
+    ],
+    replyPolicy: [
+      "恋愛伴走メンバーの方は単発相談より優先的に返信します。",
+      "ただし、即時返信、緊急対応、24時間以内の返信を保証するものではありません。",
+    ],
+    cancellationPolicy: [
+      "月額プランの性質上、決済完了後のキャンセル・返金は原則としてお受けしておりません。",
+      "ただし、重複決済や当方都合によりサービス提供ができない場合は個別に対応します。",
+    ],
     badge: "おすすめ・メインプラン",
     featured: true,
     icon: "crystal",
@@ -58,6 +102,11 @@ export const products: Product[] = [
     ],
     ctaLabel: "ライト相談を申し込む",
     ctaHref: stripeCheckoutUrls.light,
+    paymentLabel: "内容に同意してStripeで支払う",
+    planType: "単発相談",
+    serviceTiming: singleConsultationTiming,
+    replyPolicy: singleReplyPolicy,
+    cancellationPolicy: singleCancellationPolicy,
     icon: "heart",
     tone: "pink",
   },
@@ -78,6 +127,11 @@ export const products: Product[] = [
     ],
     ctaLabel: "深掘り相談を申し込む",
     ctaHref: stripeCheckoutUrls.deep,
+    paymentLabel: "内容に同意してStripeで支払う",
+    planType: "単発相談",
+    serviceTiming: singleConsultationTiming,
+    replyPolicy: singleReplyPolicy,
+    cancellationPolicy: singleCancellationPolicy,
     badge: "しっかり整理",
     icon: "moon",
     tone: "lavender",

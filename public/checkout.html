@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="love tipsの恋愛改善メニュー購入前確認ページです。相談内容、価格、返金条件、利用規約への同意を確認できます。"
+      content="love tipsの恋愛改善メニュー申込内容確認ページです。相談内容、価格、返金条件、利用規約への同意を確認できます。"
     />
-    <title>購入前のご確認 | love tips</title>
+    <title>申込内容のご確認 | love tips</title>
     <link rel="stylesheet" href="./legal-pages.css" />
   </head>
   <body>
@@ -26,7 +26,7 @@
 
     <main class="shell">
       <span class="eyebrow">checkout</span>
-      <h1>購入前のご確認</h1>
+      <h1>申込内容のご確認</h1>
       <p class="lead">
         決済へ進む前に、相談内容・価格・提供方法・返信ポリシー・返金条件をご確認ください。お支払いはStripeの決済ページで行われ、当サイトではクレジットカード情報を直接保存しません。
       </p>
@@ -75,7 +75,7 @@
             <div>
               <dt>注意事項</dt>
               <dd>
-                本サービスは恋愛相談サポートであり、特定の結果や相手の反応をお約束するものではありません。
+                本サービスは恋愛相談サポートであり、特定の結果や相手の反応を保証するものではありません。
               </dd>
             </div>
           </dl>
@@ -95,13 +95,14 @@
               rel="noopener noreferrer"
               >特定商取引法に基づく表記</a
             >、
-            <a href="./reply-policy.html" target="_blank" rel="noopener noreferrer">返信ポリシー</a>、
             <a href="./refund.html" target="_blank" rel="noopener noreferrer">返金・キャンセルポリシー</a>
-            を確認し、内容に同意します。
+            、
+            <a href="./reply-policy.html" target="_blank" rel="noopener noreferrer">返信ポリシー</a>
+            を確認し、サービス内容・料金・注意事項に同意します。
           </span>
         </label>
         <p class="notice">
-          お申し込み前に、サービス内容・料金・返信ポリシー・返金・キャンセルポリシーをご確認ください。本サービスは恋愛相談サポートであり、特定の結果をお約束するものではありません。
+          お申し込み前に、サービス内容・料金・返信ポリシー・返金ポリシーをご確認ください。本サービスは恋愛相談サポートであり、特定の結果を保証するものではありません。
         </p>
         <button id="pay-button" class="button checkout-button" type="button" disabled>
           同意してStripe決済へ進む
@@ -139,7 +140,7 @@
       const PAYMENT_CONFIG = {
         provider: "stripe",
         mode: "test",
-        // TODO: 本番公開前にStripe本番リンクへ差し替え
+        // TODO: 本番公開前にStripe本番決済リンクへ差し替える
         member: {
           name: "恋愛伴走メンバー",
           price: "7,980円（税込）/ 月額",

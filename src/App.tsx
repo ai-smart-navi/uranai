@@ -95,7 +95,7 @@ function App() {
               },
               {
                 title: "無理な案内はしません",
-                text: "有料相談は購入前確認ページで内容と同意事項を確認できます。",
+                text: "有料相談は申込内容確認画面で内容と同意事項を確認できます。",
                 icon: ShieldCheck,
               },
             ].map(({ title, text, icon: Icon }) => (
