@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/run-vite.cjs dev",
-    "build": "node scripts/run-vite.cjs build && node scripts/create-free-tool-route.cjs",
+    "build": "node scripts/run-vite.cjs build && node scripts/post-build-routes.cjs",
     "preview": "node scripts/run-vite.cjs preview"
   },
   "dependencies": {

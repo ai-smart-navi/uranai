@@ -4,10 +4,6 @@ const pagePath = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 export const siteLinks = {
   line: lineFriendUrl,
   order: lineFriendUrl,
-  freeTool: `${import.meta.env.BASE_URL}free-tool/`,
-  freeToolSection: "#free-tool-section",
-  dailyFortune: `${import.meta.env.BASE_URL}daily-fortune/`,
-  dailyFortuneSection: "#daily-fortune-section",
   instagram: "https://www.instagram.com/love_tips000/",
   checkout: pagePath("checkout.html"),
   commercialTransaction: pagePath("commercial-transaction.html"),

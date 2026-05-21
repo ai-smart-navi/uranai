@@ -24,12 +24,6 @@ export default function Header() {
         </a>
 
         <nav className="hidden items-center gap-5 text-sm font-medium text-rosewood/75 md:flex">
-          <a className="hover:text-rosewood" href={siteLinks.dailyFortuneSection}>
-            今日の行動ヒント
-          </a>
-          <a className="hover:text-rosewood" href={siteLinks.freeToolSection}>
-            恋愛傾向チェック
-          </a>
           <a className="hover:text-rosewood" href="#menu">
             恋愛改善メニュー
           </a>
