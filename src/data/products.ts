@@ -20,11 +20,10 @@ export type Product = {
   tone: "pink" | "lavender" | "beige";
 };
 
-// TODO: 本番公開前にStripe本番決済リンクへ差し替える
 const stripeCheckoutUrls = {
-  member: "https://buy.stripe.com/test_bJe7sL21F84CaOpbiL6oo03",
-  light: "https://buy.stripe.com/test_fZu5kD7lZ1Ge1dPfz16oo04",
-  deep: "https://buy.stripe.com/test_4gM4gzgWxacKf4F72v6oo05",
+  member: "https://buy.stripe.com/7sYbJ1fO2dXL1omalogYU00",
+  light: "https://buy.stripe.com/7sYaEX59odXL5EC8dggYU01",
+  deep: "https://buy.stripe.com/6oU4gz8lA7znaYWgJMgYU02",
 } as const;
 
 const singleConsultationTiming = [

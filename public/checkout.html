@@ -145,15 +145,14 @@
     <script>
       const PAYMENT_CONFIG = {
         provider: "stripe",
-        mode: "test",
-        // TODO: 本番公開前にStripe本番決済リンクへ差し替える
+        mode: "live",
         member: {
           name: "恋愛伴走メンバー",
           price: "7,980円（税込）/ 月額",
           description:
             "月1回恋愛タイプ分析、週3回の恋愛心理・恋愛ノウハウ配信、チャット相談、LINE/DM添削、優先返信、行動プラン作成、コミュニティ参加を含む月額プランです。",
           checkoutUrl:
-            "https://buy.stripe.com/test_bJe7sL21F84CaOpbiL6oo03",
+            "https://buy.stripe.com/7sYbJ1fO2dXL1omalogYU00",
           badge: "おすすめ・メインプラン",
         },
         light: {
@@ -162,7 +161,7 @@
           description:
             "状況整理、価値観分析、メッセージ添削、行動アドバイスを行う単発相談です。",
           checkoutUrl:
-            "https://buy.stripe.com/test_fZu5kD7lZ1Ge1dPfz16oo04",
+            "https://buy.stripe.com/7sYaEX59odXL5EC8dggYU01",
         },
         deep: {
           name: "深掘り相談",
@@ -170,7 +169,7 @@
           description:
             "状況整理、価値観分析、メッセージ添削、相手心理整理、行動プラン作成、LINE・DM添削まで行う単発相談です。",
           checkoutUrl:
-            "https://buy.stripe.com/test_4gM4gzgWxacKf4F72v6oo05",
+            "https://buy.stripe.com/6oU4gz8lA7znaYWgJMgYU02",
           badge: "しっかり整理",
         },
       };
