@@ -1,4 +1,4 @@
-import { Instagram, Sparkles } from "lucide-react";
+import { BookOpen, Instagram, Sparkles } from "lucide-react";
 import { siteLinks } from "../data/site";
 
 const footerLinks = [
@@ -39,6 +39,15 @@ export default function Footer() {
           >
             <Instagram className="h-4 w-4" aria-hidden="true" />
             Instagram：@love_tips000
+          </a>
+          <a
+            href={siteLinks.note}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-2 rounded-full bg-lavender-50 px-4 py-2 text-sm font-bold text-rosewood transition hover:bg-lavender-100"
+          >
+            <BookOpen className="h-4 w-4" aria-hidden="true" />
+            恋愛noteを読む
           </a>
         </div>
 

@@ -1,4 +1,4 @@
-import { ArrowRight, Heart, MessageCircle, Moon, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, Heart, MessageCircle, Moon, Sparkles } from "lucide-react";
 import { siteLinks } from "../data/site";
 import { assetPath } from "../lib/assets";
 
@@ -44,6 +44,15 @@ export default function Hero() {
             <a className="btn-secondary" href="#menu">
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
               恋愛改善メニューを見る
+            </a>
+            <a
+              className="btn-secondary"
+              href={siteLinks.note}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <BookOpen className="h-4 w-4" aria-hidden="true" />
+              恋愛noteを読む
             </a>
             <a className="btn-secondary" href="#menu">
               <Sparkles className="h-4 w-4" aria-hidden="true" />

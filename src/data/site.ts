@@ -4,6 +4,7 @@ const pagePath = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 export const siteLinks = {
   line: lineFriendUrl,
   order: lineFriendUrl,
+  note: "https://note.com/ai_smart_navi",
   instagram: "https://www.instagram.com/love_tips000/",
   checkout: pagePath("checkout.html"),
   commercialTransaction: pagePath("commercial-transaction.html"),
